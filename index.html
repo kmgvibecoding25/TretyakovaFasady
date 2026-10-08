@@ -1,0 +1,1507 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ФасадЛаб — мебельные фасады на заказ</title>
+<meta name="description" content="Мебельные фасады из МДФ по вашим размерам. Онлайн-конфигуратор, окончательная цена за 5 минут, производство в Павлодаре, доставка по всему Казахстану.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --graphite:#2B2F33;--bg:#F7F4EF;--card:#FFFFFF;--cta:#A0612B;--cta-h:#7F4C21;--sage:#6F8A6E;--sage-bg:#E8EEE7;--sage-t:#3F5A3E;
+  --text:#1F2328;--muted:#6B7075;--border:#E4DED4;--warn-bg:#FFF4DE;--warn:#8A5A00;--err:#B3261E;--err-bg:#FBEAE8;--preview:#EDEDED;
+  --r:10px;--r2:14px;--shadow:0 1px 2px rgba(31,35,40,.06),0 8px 24px rgba(31,35,40,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{margin:0;font:400 16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.noscroll{overflow:hidden}
+h1,h2,h3,h4{font-family:Manrope,Inter,system-ui,sans-serif;color:var(--graphite);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(32px,5.2vw,56px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(26px,3.4vw,38px);font-weight:700;letter-spacing:-.01em}
+h3{font-size:19px;font-weight:700}
+h4{font-size:16px;font-weight:700}
+p{margin:0 0 1em}
+a{color:var(--cta)}
+img,svg{max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 28px}}
+section{padding:64px 0}
+@media(min-width:900px){section{padding:88px 0}}
+.sec-head{max-width:760px;margin-bottom:32px}
+.eyebrow{display:block;font:600 12.5px/1.2 Inter,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--cta);margin-bottom:12px}
+.lead{font-size:18px;color:var(--muted)}
+.muted{color:var(--muted)}
+.small{font-size:13.5px}
+.mt{margin-top:14px}.mt2{margin-top:24px}
+.wfull{width:100%}
+.alt{background:#FFFFFF;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+:focus-visible{outline:3px solid var(--cta);outline-offset:2px;border-radius:6px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:var(--r);border:1px solid transparent;font:600 15px/1.1 Inter,sans-serif;cursor:pointer;text-decoration:none;transition:background .15s,border-color .15s,color .15s;white-space:nowrap;color:inherit;background:none}
+.btn-cta{background:var(--cta);color:#fff}.btn-cta:hover{background:var(--cta-h)}
+.btn-dark{background:var(--graphite);color:#fff}.btn-dark:hover{background:#1c1f22}
+.btn-ghost{background:#fff;border-color:var(--border);color:var(--text)}.btn-ghost:hover{border-color:var(--graphite)}
+.btn-line{border-color:rgba(255,255,255,.3);color:#fff}.btn-line:hover{border-color:#fff}
+.btn-sm{min-height:38px;padding:0 14px;font-size:14px}
+.btn[disabled],.btn[aria-disabled=true]{opacity:.45;cursor:not-allowed}
+.linkbtn{background:none;border:0;padding:0;color:var(--cta);font:600 14px Inter,sans-serif;cursor:pointer;text-align:left}
+.linkbtn:hover{text-decoration:underline}
+.iconb{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:15px;color:var(--text);display:inline-flex;align-items:center;justify-content:center}
+.iconb:hover{border-color:var(--graphite)}.iconb[disabled]{opacity:.35;cursor:not-allowed}
+
+/* Header */
+.hdr{position:sticky;top:0;z-index:60;background:var(--graphite);color:#fff}
+.hdr .wrap{display:flex;align-items:center;gap:14px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font:700 16px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;flex:0 0 auto}
+.nav{display:none;gap:2px;margin-left:10px}
+.nav a{color:#D9D5CE;text-decoration:none;font-size:14px;padding:8px 9px;border-radius:8px}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.hdr-r{margin-left:auto;display:flex;align-items:center;gap:8px}
+.hbtn{position:relative;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 12px;border-radius:9px;border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;font:500 14px Inter,sans-serif;cursor:pointer;text-decoration:none}
+.hbtn:hover{border-color:rgba(255,255,255,.5)}
+.hbtn svg{width:18px;height:18px;flex:0 0 auto}
+.hbtn .lbl{display:none}
+.badge{position:absolute;top:-6px;right:-6px;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:var(--cta);color:#fff;font:700 11px/19px Inter,sans-serif;text-align:center}
+.hdr .btn-cta{display:none;min-height:40px}
+.burger{display:inline-flex}
+@media(max-width:419px){.hbtn.wa{display:none}.hdr .wrap{gap:8px}.hbtn{padding:0 10px}}
+@media(min-width:640px){.hdr .btn-cta{display:inline-flex}.hbtn .lbl{display:inline}}
+@media(min-width:1260px){.nav{display:flex}.burger{display:none}}
+.drawer{display:none;background:var(--graphite);border-top:1px solid rgba(255,255,255,.1);padding:8px 16px 18px}
+.drawer.open{display:block}
+.drawer a{display:block;color:#fff;text-decoration:none;padding:11px 4px;border-bottom:1px solid rgba(255,255,255,.08);font-size:16px}
+.drawer .dphone{color:#E9C9A6;font-weight:600}
+.demo-strip{background:#3a3f44;color:#D9D5CE;font-size:12.5px;text-align:center;padding:6px 16px}
+
+/* Hero */
+.hero{padding:40px 0 56px}
+@media(min-width:900px){.hero{padding:64px 0 80px}}
+.hero-grid{display:grid;gap:36px;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:56px}}
+.hero h1 span{color:var(--cta)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 30px}
+.adv{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.adv li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:500;background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px}
+.adv li svg{flex:0 0 22px;color:var(--sage)}
+.hero-vis{background:linear-gradient(180deg,#EFE8DD,#E7DFD2);border-radius:20px;padding:22px;box-shadow:var(--shadow);position:relative}
+.hero-vis svg{display:block;width:100%;height:auto;max-height:560px}
+.hero-tag{position:absolute;left:18px;bottom:18px;background:#fff;border-radius:12px;padding:10px 14px;box-shadow:var(--shadow);font-size:13px}
+.hero-tag b{display:block;font:700 18px Manrope,sans-serif;color:var(--graphite)}
+
+/* How */
+.how{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.how-i{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:20px}
+.how-n{width:34px;height:34px;border-radius:50%;background:var(--graphite);color:#fff;display:flex;align-items:center;justify-content:center;font:700 15px Manrope,sans-serif;margin-bottom:12px}
+.how-i p{color:var(--muted);font-size:14.5px;margin:0}
+
+/* Tech */
+.tgrid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.tcard{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:18px;display:flex;flex-direction:column;gap:8px}
+.tcard .tsw{height:90px;border-radius:10px;border:1px solid var(--border)}
+.tcard .tmeta{display:flex;justify-content:space-between;font-size:14px;border-top:1px solid var(--border);padding-top:10px;margin-top:auto}
+.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r2);background:#fff;margin-top:28px}
+table.tt{border-collapse:collapse;width:100%;min-width:860px;font-size:14.5px}
+.tt th,.tt td{padding:12px 14px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+.tt th{background:#FBF9F5;font:600 13px Inter,sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.tt tr:last-child td{border-bottom:0}
+.tt td:first-child{font-weight:700;color:var(--graphite);white-space:nowrap}
+
+/* Configurator */
+.cfg{padding-top:56px}
+.cfg-grid{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+.cfg-main,.cfg-side{min-width:0}
+@media(min-width:1024px){.cfg-grid{grid-template-columns:minmax(0,1fr) 400px;align-items:start;gap:24px}}
+.cfg-side{order:-1;position:sticky;top:64px;z-index:8;margin:0 -16px;padding:8px 16px;background:var(--bg)}
+@media(min-width:1024px){.cfg-side{order:0;top:80px;margin:0;padding:0;background:none}}
+.pcard{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:12px}
+@media(min-width:1024px){.pcard{padding:16px}}
+.pv{background:var(--preview);border-radius:10px;height:clamp(140px,22vh,210px);display:flex;align-items:center;justify-content:center;overflow:hidden}
+@media(min-width:1024px){.pv{height:400px}}
+.pv svg{width:100%;height:100%;display:block}
+.pv-tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:8px;scrollbar-width:thin;min-height:30px;align-items:center}
+.pvt{flex:0 0 auto;border:1px solid var(--border);background:#fff;border-radius:8px;padding:5px 10px;font:500 12.5px Inter,sans-serif;cursor:pointer;color:var(--text)}
+.pvt.on{background:var(--graphite);color:#fff;border-color:var(--graphite)}
+.pv-note{font-size:12px;color:var(--muted);margin:8px 2px 0;display:none}
+@media(min-width:1024px){.pv-note{display:block}}
+.price-card{display:none;margin-top:14px}
+@media(min-width:1024px){.price-card{display:block}}
+.pc-total{font:800 34px/1.1 Manrope,sans-serif;color:var(--graphite);margin:4px 0}
+.pc-dl{margin:14px 0;display:grid;gap:7px;font-size:14px}
+.pc-dl div{display:flex;justify-content:space-between;gap:12px}
+.pc-dl dt{color:var(--muted)}.pc-dl dd{margin:0;text-align:right;font-weight:500}
+.pc-btns{display:grid;gap:8px}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.2);vertical-align:-1px;margin-right:6px}
+.stepper{display:flex;gap:6px;overflow-x:auto;margin-bottom:14px;scrollbar-width:none}
+.stepper::-webkit-scrollbar{display:none}
+.st{flex:0 0 auto;display:flex;align-items:center;gap:8px;border:1px solid var(--border);background:#fff;border-radius:999px;padding:6px 14px 6px 6px;font:600 14px Inter,sans-serif;color:var(--muted);cursor:pointer}
+.st span{width:26px;height:26px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--graphite)}
+.st.on{border-color:var(--graphite);color:var(--graphite)}.st.on span{background:var(--graphite);color:#fff}
+.st.done span{background:var(--sage-bg);color:var(--sage-t)}
+.cfg-panel{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:18px}
+@media(min-width:768px){.cfg-panel{padding:24px}}
+.ph{font-size:21px;margin-bottom:4px}
+.phs{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+.ocards{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+.ocard{border:1px solid var(--border);border-radius:12px;padding:0;display:flex;flex-direction:column;background:#fff;transition:border-color .15s}
+.ocard.on{border-color:var(--cta);box-shadow:inset 0 0 0 1px var(--cta)}
+.ocard-main{border:0;background:none;text-align:left;padding:12px 12px 6px;cursor:pointer;display:flex;flex-direction:column;gap:5px;font:inherit;color:inherit;border-radius:12px}
+.ocard .osw{height:56px;border-radius:8px;border:1px solid rgba(0,0,0,.06)}
+.ocard strong{font:700 16px Manrope,sans-serif;color:var(--graphite)}
+.ometa{font-size:13px;color:var(--text)}
+.ocard .linkbtn{padding:4px 12px 12px;font-size:13.5px}
+.fgroup{margin-top:20px}
+.flabel{font:600 14px Inter,sans-serif;color:var(--graphite);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--border);background:#fff;border-radius:999px;padding:8px 14px;font:500 14px Inter,sans-serif;cursor:pointer;color:var(--text)}
+.chip small{color:var(--muted);font-weight:400;margin-left:4px}
+.chip.on{background:var(--graphite);border-color:var(--graphite);color:#fff}.chip.on small{color:#cfd2d4}
+.chip[disabled]{opacity:.45;cursor:not-allowed}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;cursor:pointer;margin:10px 0;line-height:1.4}
+.check input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--cta);flex:0 0 auto}
+.check.dis{opacity:.5;cursor:not-allowed}
+.mgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.mcard{border:1px solid var(--border);background:#fff;border-radius:12px;padding:10px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;font:inherit;color:inherit}
+.mcard.on{border-color:var(--cta);box-shadow:inset 0 0 0 1px var(--cta)}
+.mcard[disabled]{cursor:not-allowed;background:#FAFAF9}.mcard[disabled] .mpv{opacity:.35;filter:grayscale(1)}
+.mpv{height:150px;background:var(--preview);border-radius:8px;display:block;margin-bottom:4px}
+.mpv svg{width:100%;height:100%;display:block}
+.mcard strong{font:700 14.5px Manrope,sans-serif;color:var(--graphite)}
+.swgrid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));margin-top:14px}
+.sw{border:1px solid var(--border);background:#fff;border-radius:10px;padding:6px;cursor:pointer;text-align:left;font:inherit;color:inherit;display:flex;flex-direction:column;gap:3px}
+.sw.on{border-color:var(--cta);box-shadow:inset 0 0 0 1px var(--cta)}
+.sw .swi{display:block;aspect-ratio:1/1;border-radius:7px;border:1px solid rgba(0,0,0,.08);overflow:hidden}
+.sw .swi svg{width:100%;height:100%;display:block}
+.sw b{font-size:12.5px;line-height:1.2}.sw small{font-size:11.5px;color:var(--muted);line-height:1.2}
+.inp,.fld input,.fld select,.fld textarea{width:100%;min-height:44px;border:1px solid var(--border);border-radius:9px;padding:9px 11px;font:inherit;font-size:15px;background:#fff;color:var(--text)}
+.fld textarea{min-height:90px;resize:vertical}
+.inp:focus,.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--cta);box-shadow:0 0 0 3px rgba(160,97,43,.18)}
+.fld{display:block}
+.fld>span{display:block;font-size:12.5px;color:var(--muted);margin-bottom:4px;font-weight:500}
+.fld input[type=color]{padding:3px;height:44px}
+.fgrid{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:10px}
+@media(min-width:640px){.fgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1180px){.fgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.fgrid2{display:grid;gap:12px}
+@media(min-width:640px){.fgrid2{grid-template-columns:1fr 1fr}}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;align-items:center}
+.items{display:grid;gap:12px}
+.item{border:1px solid var(--border);border-radius:12px;padding:14px;background:#fff;transition:border-color .15s}
+.item.sel{border-color:var(--graphite)}
+.item.bad{border-color:var(--err)}
+.item-h{display:flex;align-items:center;gap:10px}
+.item-n{border:0;background:none;font:700 15px Manrope,sans-serif;color:var(--graphite);cursor:pointer;padding:0}
+.item-sum{margin-left:auto;font-size:13.5px;color:var(--muted);text-align:right}
+.item-tools{display:flex;gap:6px}
+.sub{border-top:1px dashed var(--border);margin-top:12px;padding-top:4px}
+.note{padding:11px 14px;border-radius:10px;font-size:14px;margin:12px 0;line-height:1.45}
+.note ul{margin:6px 0 0;padding-left:18px}
+.note.warn{background:var(--warn-bg);color:var(--warn)}
+.note.err{background:var(--err-bg);color:var(--err)}
+.note.ok{background:var(--sage-bg);color:var(--sage-t)}
+.note.info{background:#F3EFE8;color:var(--text)}
+.stepnav{display:flex;justify-content:space-between;gap:10px;margin-top:22px;padding-top:18px;border-top:1px solid var(--border)}
+.spec{display:grid;gap:10px}
+.srow{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;border:1px solid var(--border);border-radius:12px;padding:10px}
+.srow.bad{border-color:var(--err)}
+.srow .spv{width:64px;height:80px;background:var(--preview);border-radius:8px}
+.srow .spv svg{width:100%;height:100%}
+.srow .sp{text-align:right;font-weight:600;white-space:nowrap}
+.srow .sp .iconb{margin-top:6px}
+table.bd{width:100%;border-collapse:collapse;font-size:15px;margin-top:8px}
+.bd td{padding:9px 0;border-bottom:1px solid var(--border);vertical-align:top}
+.bd td:last-child{text-align:right;white-space:nowrap;padding-left:12px}
+.bd tr.minus td:last-child{color:var(--sage-t)}
+.bd tr.tot td{font:800 22px Manrope,sans-serif;color:var(--graphite);border-bottom:0;padding-top:14px}
+.bd tr.vat td{font-size:13.5px;color:var(--muted);border-bottom:0;padding-top:0}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:55;background:#fff;border-top:1px solid var(--border);box-shadow:0 -6px 20px rgba(31,35,40,.08);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;align-items:center;gap:12px}
+.mbar.show{display:flex}
+@media(min-width:1024px){.mbar.show{display:none}}
+.mbar .mbt{font:800 20px/1.1 Manrope,sans-serif;color:var(--graphite)}
+.mbar .btn{margin-left:auto}
+
+/* Generic content */
+.grid3{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.box{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:22px}
+.box h3{margin-bottom:8px}
+.box p:last-child{margin-bottom:0}
+.price-tag{display:inline-block;font:700 14px Inter,sans-serif;background:var(--sage-bg);color:var(--sage-t);border-radius:999px;padding:4px 10px;margin-bottom:10px}
+.price-tag.soon{background:#EEE9E1;color:var(--muted)}
+.gfilter{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.gfilter select{min-height:42px;border:1px solid var(--border);border-radius:9px;padding:0 12px;font:inherit;background:#fff}
+.ggrid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.gcard{background:#fff;border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;display:flex;flex-direction:column}
+.gcard .gpv{background:linear-gradient(180deg,#EFE8DD,#E5DCCF);height:230px;padding:16px}
+.gcard .gpv svg{width:100%;height:100%}
+.gcard .gb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.gcard .gb .btn{margin-top:auto;align-self:flex-start}
+.zones{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.zone{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden}
+.zone::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--zc,#A0612B)}
+.zone b{font:700 15px Manrope,sans-serif;color:var(--graphite)}
+.zone .zt{font-weight:600;margin:6px 0 4px}
+.split{display:grid;gap:20px}
+@media(min-width:900px){.split{grid-template-columns:1fr 1fr;gap:28px}}
+.lt{width:100%;border-collapse:collapse;font-size:15px}
+.lt td{padding:10px 0;border-bottom:1px solid var(--border)}
+.lt td:last-child{text-align:right;font-weight:600}
+details.faq{background:#fff;border:1px solid var(--border);border-radius:12px;padding:0 18px;margin-bottom:10px}
+details.faq summary{cursor:pointer;list-style:none;padding:16px 28px 16px 0;font:700 16px Manrope,sans-serif;color:var(--graphite);position:relative}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";position:absolute;right:0;top:12px;font:400 24px Inter;color:var(--cta)}
+details.faq[open] summary::after{content:"−"}
+details.faq p{color:var(--muted);margin:0 0 16px}
+.trk-form{display:grid;gap:12px;max-width:640px}
+@media(min-width:640px){.trk-form{grid-template-columns:1fr 1fr auto;align-items:end}}
+.b2b{background:var(--graphite);color:#E8E5E0;border-radius:20px;padding:28px}
+@media(min-width:768px){.b2b{padding:44px}}
+.b2b h2,.b2b h3{color:#fff}
+.b2b .grid3 .box{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#E8E5E0}
+.b2b .muted{color:#B9B6B0}
+.disc{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.disc div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 16px}
+.disc b{display:block;font:800 24px Manrope,sans-serif;color:#E9C9A6}
+.map{background:repeating-linear-gradient(45deg,#ECE6DC 0 12px,#E7E0D5 12px 24px);border-radius:var(--r2);min-height:240px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;border:1px solid var(--border)}
+.contact-list{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.contact-list li{display:flex;gap:12px}
+.contact-list svg{flex:0 0 22px;color:var(--cta);margin-top:2px}
+footer{background:var(--graphite);color:#BDBAB4;padding:44px 0 28px;font-size:14px}
+footer a{color:#E8E5E0}
+.fgrid-f{display:grid;gap:24px}
+@media(min-width:768px){.fgrid-f{grid-template-columns:1.4fr 1fr 1fr}}
+footer h4{color:#fff}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer .linkbtn{color:#E8E5E0;font-weight:400}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(31,35,40,.55);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;animation:fade .15s}
+@keyframes fade{from{opacity:0}}
+.modal-box{background:#fff;border-radius:18px;max-width:620px;width:100%;max-height:calc(100vh - 32px);overflow:auto;position:relative;padding:26px 20px 22px}
+@media(min-width:640px){.modal-box{padding:32px}}
+.modal.full .modal-box{max-width:860px}
+@media(max-width:639px){.modal{padding:0}.modal-box{border-radius:0;max-height:100vh;height:100%}.modal.full .modal-box{max-width:none}}
+.modal-x{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--border);background:#fff;font-size:20px;cursor:pointer;color:var(--text);z-index:2}
+.modal h3{padding-right:40px}
+.ck-prog{display:flex;gap:4px;overflow-x:auto;margin:0 40px 20px 0;scrollbar-width:none}
+.ck-prog span{flex:1 0 auto;font-size:12px;color:var(--muted);border-top:3px solid var(--border);padding-top:6px;white-space:nowrap}
+.ck-prog span.on{border-color:var(--cta);color:var(--graphite);font-weight:600}
+.ck-prog span.done{border-color:var(--sage)}
+.ck-nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px;flex-wrap:wrap}
+.paym{display:grid;gap:10px}
+.payc{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer}
+.payc input{margin-top:3px;accent-color:var(--cta);width:18px;height:18px;flex:0 0 auto}
+.payc.on{border-color:var(--cta);box-shadow:inset 0 0 0 1px var(--cta)}
+.payc.dis{opacity:.5;cursor:not-allowed}
+.payc b{display:block;color:var(--graphite)}
+.payc .pa{margin-left:auto;font-weight:700;white-space:nowrap;text-align:right}
+.bigno{font:800 34px Manrope,sans-serif;color:var(--graphite)}
+.tl{list-style:none;padding:0;margin:16px 0;position:relative}
+.tl li{position:relative;padding:0 0 18px 30px}
+.tl li::before{content:"";position:absolute;left:8px;top:18px;bottom:-2px;width:2px;background:var(--border)}
+.tl li:last-child::before{display:none}
+.tl li i{position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;border:2px solid var(--border);background:#fff}
+.tl li.done i{background:var(--sage);border-color:var(--sage)}
+.tl li.cur i{border-color:var(--cta);box-shadow:0 0 0 4px rgba(160,97,43,.18);background:var(--cta)}
+.tl li b{display:block;color:var(--graphite)}
+.tl li.todo b{color:var(--muted);font-weight:500}
+.tl .sub-st{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tl .sub-st span{font-size:12px;border-radius:999px;padding:3px 9px;background:#F1EEE8;color:var(--muted)}
+.tl .sub-st span.d{background:var(--sage-bg);color:var(--sage-t)}
+.tl .sub-st span.c{background:var(--cta);color:#fff}
+.progress{height:8px;background:#EEE9E1;border-radius:6px;overflow:hidden;margin:10px 0}
+.progress div{height:100%;background:var(--sage);border-radius:6px}
+.olist{display:grid;gap:10px}
+.orow{display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid var(--border);border-radius:12px;padding:12px 14px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:inherit;width:100%}
+.orow:hover{border-color:var(--graphite)}
+.stbadge{display:inline-block;font-size:12.5px;font-weight:600;border-radius:999px;padding:3px 10px;background:var(--sage-bg);color:var(--sage-t)}
+.stbadge.w{background:var(--warn-bg);color:var(--warn)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 18px}
+.qr{width:180px;height:180px;margin:10px auto;display:block}
+.smp-row{display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--border);padding:10px 0}
+.smp-row .swi{width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.1);flex:0 0 auto;overflow:hidden}
+.smp-row .swi svg{width:100%;height:100%}
+.smp-row .sp{margin-left:auto;font-weight:600;white-space:nowrap}
+.toasts{position:fixed;left:50%;transform:translateX(-50%);bottom:86px;z-index:200;display:grid;gap:8px;width:min(440px,calc(100% - 32px))}
+@media(min-width:1024px){.toasts{bottom:24px}}
+.toast{background:var(--graphite);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);animation:tin .2s}
+.toast.err{background:var(--err)}.toast.ok{background:#4F6B4E}
+.toast b{color:#E9C9A6}
+@keyframes tin{from{transform:translateY(8px);opacity:0}}
+.otp{letter-spacing:.5em;font-size:22px !important;text-align:center;font-weight:700}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14.5px;margin:10px 0}
+.kv dt{color:var(--muted)}.kv dd{margin:0}
+@media print{.hdr,.mbar,.toasts{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a href="#configurator" class="sr-only" style="position:absolute;left:-9999px">Перейти к конфигуратору</a>
+<div class="demo-strip">Учебный проект: цены, сроки и тарифы — учебные значения. Оплата, SMS и уведомления работают в демо-режиме.</div>
+
+<header class="hdr" id="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="ФасадЛаб — на главную">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" rx="4" fill="#A0612B"/><rect x="7" y="7" width="16" height="16" rx="1.5" fill="none" stroke="#2B2F33" stroke-width="2.5"/></svg>
+      ФасадЛаб
+    </a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="#tech">Технологии</a><a href="#configurator">Конфигуратор</a><a href="#samples">Образцы</a><a href="#gallery">Галерея</a><a href="#delivery">Доставка</a><a href="#payment">Оплата</a><a href="#business">Бизнесу</a><a href="#contacts">Контакты</a>
+    </nav>
+    <div class="hdr-r">
+      <a class="hbtn wa" href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.3-4A8 8 0 1 1 8.6 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-1-1 .8a4 4 0 0 1-2.2-2.2l.8-1-1-1.9z" fill="currentColor" stroke="none"/></svg></a>
+      <button class="hbtn" id="hSamples" aria-label="Корзина образцов"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg><span class="lbl">Образцы</span><span class="badge" id="smpBadge" hidden>0</span></button>
+      <button class="hbtn" id="hOrder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg><span class="lbl" id="hOrderLbl">Мой заказ</span></button>
+      <a class="btn btn-cta" href="#configurator">Рассчитать фасады</a>
+      <button class="hbtn burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <div class="drawer" id="drawer">
+    <a href="#tech">Технологии</a><a href="#configurator">Конфигуратор</a><a href="#samples">Образцы цвета</a><a href="#gallery">Галерея работ</a><a href="#delivery">Сроки и доставка</a><a href="#payment">Оплата</a><a href="#tracking">Отследить заказ</a><a href="#business">Для бизнеса</a><a href="#faq">FAQ</a><a href="#contacts">Контакты</a>
+    <a href="https://wa.me/77000000000" target="_blank" rel="noopener">Написать в WhatsApp</a>
+    <a class="dphone" href="tel:+77182000000">+7 (7182) 00-00-00</a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Производство в Павлодаре · доставка по всему Казахстану</span>
+      <h1>Мебельные фасады <span>по вашим размерам</span></h1>
+      <p class="lead">Цена за 5 минут, доставка по всему Казахстану. Выберите покрытие, фрезеровку и цвет, увидьте фасад в превью и получите окончательную цену — без визита в офис и без регистрации.</p>
+      <div class="hero-cta">
+        <a class="btn btn-cta" href="#configurator">Собрать фасад</a>
+        <a class="btn btn-ghost" href="#tech">Сравнить покрытия</a>
+      </div>
+      <ul class="adv">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg>Окончательная цена онлайн — с НДС и доставкой</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg>Оплата 50/50, по счёту, рассрочка</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg>Собственное производство в Павлодаре</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg>Доставка по всему Казахстану</li>
+      </ul>
+    </div>
+    <div class="hero-vis">
+      <div id="heroVis"></div>
+      <div class="hero-tag"><span class="muted">Эмаль, рамочный, от</span><b>57 600 ₸/м²</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="alt" id="how">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Как это работает</span><h2>Пять шагов от идеи до готовых фасадов</h2></div>
+    <div class="how">
+      <div class="how-i"><div class="how-n">1</div><h4>Выбрали</h4><p>Покрытие, фрезеровку и цвет — с подсказками и сравнением технологий.</p></div>
+      <div class="how-i"><div class="how-n">2</div><h4>Увидели</h4><p>Превью в реальных пропорциях с размерами и отметками петель.</p></div>
+      <div class="how-i"><div class="how-n">3</div><h4>Рассчитали</h4><p>Окончательная цена с доставкой и дата готовности — сразу.</p></div>
+      <div class="how-i"><div class="how-n">4</div><h4>Оплатили</h4><p>Онлайн, 50/50, по счёту для ИП и компаний.</p></div>
+      <div class="how-i"><div class="how-n">5</div><h4>Получили</h4><p>Следите за статусом заказа онлайн до самой доставки.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH -->
+<section id="tech">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Технологии изготовления</span><h2>Какое покрытие выбрать</h2><p class="lead">Все фасады — из МДФ. Покрытие определяет внешний вид, стойкость, цену и срок. Честно рассказываем о рисках каждой технологии.</p></div>
+    <div class="tgrid" id="techCards"></div>
+    <div class="tablewrap"><table class="tt" id="techTable"></table></div>
+  </div>
+</section>
+
+<!-- CONFIGURATOR -->
+<section class="alt cfg" id="configurator">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Конфигуратор</span><h2>Соберите свои фасады</h2><p class="lead">Цена пересчитывается мгновенно и не требует проверки менеджером. Проект сохраняется автоматически.</p></div>
+    <div class="cfg-grid">
+      <div class="cfg-main">
+        <div class="stepper" id="stepper" role="tablist" aria-label="Шаги конфигуратора"></div>
+        <div class="cfg-panel" id="cfgPanel"></div>
+      </div>
+      <aside class="cfg-side" aria-label="Превью и цена">
+        <div class="pcard">
+          <div class="pv-tabs" id="pvTabs"></div>
+          <div class="pv" id="pv" aria-live="polite"></div>
+          <p class="pv-note">2D-превью в реальных пропорциях. Петли показаны пунктиром — со стороны присадки (тыльной).</p>
+        </div>
+        <div class="pcard price-card" id="priceCard"></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLES -->
+<section id="samples">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Образцы цвета</span><h2>Посмотрите цвет вживую до заказа</h2><p class="lead">Цвет на экране может отличаться от реального. Добавьте образец из конфигуратора кнопкой «Заказать образец этого цвета».</p></div>
+    <div class="grid3">
+      <div class="box"><span class="price-tag">Бесплатно</span><h3>Плёнка, HPL, акрил</h3><p class="muted">Готовые образцы декоров — до 5 штук на заказ. Срок подготовки 1–2 дня.</p></div>
+      <div class="box"><span class="price-tag">3 000 ₸ → вернём скидкой</span><h3>Эмаль и шпон</h3><p class="muted">Образец 100 × 100 мм изготавливается под заказ за 3–5 рабочих дней. Стоимость вернётся скидкой на фасады в течение 60 дней.</p></div>
+      <div class="box"><span class="price-tag">Павлодар — бесплатно</span><h3>Получение</h3><p class="muted">Самовывоз со склада в Павлодаре бесплатно. По Казахстану — почтой или курьером по тарифу. Нужна только простая регистрация по телефону.</p></div>
+    </div>
+    <div class="actions"><a class="btn btn-cta" href="#configurator" data-goto-step="3">Выбрать цвет в конфигураторе</a><button class="btn btn-ghost" id="openSamples2">Корзина образцов</button></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="alt" id="gallery">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Галерея работ</span><h2>Идеи для вашего интерьера</h2><p class="lead">Понравился вариант? Кнопка «Хочу такой» перенесёт его параметры в конфигуратор.</p></div>
+    <div class="gfilter">
+      <select id="gfCoat" aria-label="Фильтр по покрытию"><option value="">Все покрытия</option></select>
+      <select id="gfMill" aria-label="Фильтр по фрезеровке"><option value="">Все фрезеровки</option></select>
+    </div>
+    <div class="ggrid" id="galGrid"></div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section id="delivery">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Сроки и доставка</span><h2>Изготовим и привезём в любой город Казахстана</h2><p class="lead">Срок изготовления фиксируется после поступления предоплаты. Вес и стоимость доставки рассчитываются автоматически.</p></div>
+    <div class="split">
+      <div class="box">
+        <h3>Сроки изготовления</h3>
+        <table class="lt">
+          <tr><td>Плёнка ПВХ, HPL, акрил</td><td>7 раб. дней</td></tr>
+          <tr><td>Эмаль матовая / полуматовая</td><td>12 раб. дней</td></tr>
+          <tr><td>Эмаль глянцевая</td><td>15 раб. дней</td></tr>
+          <tr><td>Шпон натуральный</td><td>18 раб. дней</td></tr>
+        </table>
+        <p class="small muted mt">+1 день за каждые 10 м² свыше 10 м²; металлик или патина — +2 дня. Срочное изготовление: срок −40%, стоимость +30%.</p>
+      </div>
+      <div class="box">
+        <h3>Калькулятор доставки</h3>
+        <div class="fgrid2">
+          <label class="fld"><span>Город</span><select id="dcCity"></select></label>
+          <label class="fld"><span>Площадь фасадов, м²</span><input id="dcArea" type="number" min="0.1" step="0.1" value="5" inputmode="decimal"></label>
+          <label class="fld"><span>Толщина, мм</span><select id="dcT"><option>16</option><option selected>19</option><option>22</option></select></label>
+        </div>
+        <div id="dcRes" class="mt"></div>
+      </div>
+    </div>
+    <h3 class="mt2">Зоны доставки</h3>
+    <div class="zones" id="zones"></div>
+    <p class="small muted mt">Для зон 3–5 обязательна жёсткая упаковка — 1 500 ₸ за м². По Павлодару и области везём сами, по Казахстану — транспортными компаниями; тариф для вас фиксированный. Если вашего города нет в списке — применяется тариф зоны 5.</p>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="alt" id="payment">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Оплата</span><h2>Удобные способы оплаты</h2><p class="lead">Фискальный чек приходит автоматически. Данные карт на сайте не хранятся.</p></div>
+    <div class="grid3">
+      <div class="box"><span class="price-tag">По умолчанию</span><h3>50% + 50%</h3><p class="muted">Предоплата 50% при заказе, остальное — при получении: по ссылке, Kaspi QR или картой.</p></div>
+      <div class="box"><span class="price-tag">−2%</span><h3>Полная оплата онлайн</h3><p class="muted">Банковская карта, Kaspi QR / Kaspi Pay. Скидка 2% за 100% предоплату.</p></div>
+      <div class="box"><span class="price-tag">ИП и юрлица</span><h3>Оплата по счёту</h3><p class="muted">Счёт с НДС формируется автоматически по реквизитам. ЭСФ выставляет бухгалтерия.</p></div>
+      <div class="box"><span class="price-tag">Для B2B</span><h3>Индивидуальные условия</h3><p class="muted">Нужен другой процент предоплаты или график платежей? Отправьте заявку при оформлении — менеджер пришлёт ссылку на оплату.</p></div>
+      <div class="box"><span class="price-tag soon">Скоро</span><h3>Рассрочка</h3><p class="muted">Через банки-партнёры. Банк перечисляет нам полную сумму, вы платите частями.</p></div>
+      <div class="box"><span class="price-tag soon">Скоро</span><h3>Кредит онлайн</h3><p class="muted">Заявка в банк-партнёр прямо с сайта, без визита в отделение.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKING -->
+<section id="tracking">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Отслеживание заказа</span><h2>Где мой заказ?</h2><p class="lead">Введите номер заказа и телефон — пришлём одноразовый код и покажем статус по каждому этапу производства.</p></div>
+    <form class="trk-form" id="trkForm" novalidate>
+      <label class="fld"><span>Номер заказа</span><input id="trkNo" class="inp" inputmode="numeric" placeholder="Например, 10245" autocomplete="off"></label>
+      <label class="fld"><span>Телефон</span><input id="trkPhone" class="inp" type="tel" inputmode="tel" value="+7 " placeholder="+7 7XX XXX-XX-XX"></label>
+      <button class="btn btn-dark" type="submit">Отследить</button>
+    </form>
+    <p class="small muted mt">Демо: заказ <b>10245</b>, телефон <b>+7 701 000-00-00</b>.</p>
+  </div>
+</section>
+
+<!-- B2B -->
+<section id="business" style="padding-top:0">
+  <div class="wrap">
+    <div class="b2b">
+      <span class="eyebrow" style="color:#E9C9A6">Для бизнеса</span>
+      <h2>Мебельным фирмам и мастерам</h2>
+      <p class="muted" style="max-width:720px">Загружайте спецификацию из Excel (CSV), получайте скидки за объём, работайте по договору с оплатой по счёту с НДС. История заказов и документы — в личном кабинете.</p>
+      <div class="disc"><div><b>3%</b>от 5 м²</div><div><b>5%</b>от 15 м²</div><div><b>8%</b>от 30 м²</div></div>
+      <div class="grid3">
+        <div class="box"><h3>Спецификация из файла</h3><p class="muted">Скачайте шаблон, заполните в Excel, сохраните как CSV и загрузите на шаге 4.</p><button class="btn btn-line btn-sm" id="b2bTpl">Скачать шаблон CSV</button></div>
+        <div class="box"><h3>Договор и ЭСФ</h3><p class="muted">Счёт с НДС формируется автоматически. Электронный счёт-фактура — через ИС ЭСФ.</p></div>
+        <div class="box"><h3>Повторные заказы</h3><p class="muted">Повторите любой прошлый заказ в один клик или скопируйте строки спецификации.</p></div>
+      </div>
+      <div class="actions"><a class="btn btn-cta" href="#configurator">Рассчитать заказ</a><a class="btn btn-line" href="https://wa.me/77000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B4%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE%D1%80" target="_blank" rel="noopener">Запросить договор</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt" id="faq">
+  <div class="wrap" style="max-width:880px">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Частые вопросы</h2></div>
+    <details class="faq"><summary>Цена на сайте окончательная?</summary><p>Да. Цена включает НДС, упаковку и доставку до выбранного города и не требует проверки менеджером. Она фиксируется на 3 рабочих дня до внесения предоплаты.</p></details>
+    <details class="faq"><summary>Нужно ли регистрироваться?</summary><p>Для расчёта — нет. При оформлении заказа или образцов достаточно номера телефона и одноразового кода, пароль не нужен.</p></details>
+    <details class="faq"><summary>Как убедиться, что цвет подойдёт?</summary><p>Закажите образец. Декоры плёнки, HPL и акрила — бесплатно (до 5 шт.). Окрашенный образец или шпон стоит 3 000 ₸, эта сумма вернётся скидкой при заказе фасадов в течение 60 дней.</p></details>
+    <details class="faq"><summary>Вы ставите петли и ручки?</summary><p>Мы выполняем присадку под петли (чашка Ø35 мм) и отверстия под ручки — это опции на шаге 4. Сами петли и ручки в комплект не входят.</p></details>
+    <details class="faq"><summary>Поставляете ли вы стекло для витрин?</summary><p>Нет, витрины изготавливаются с проёмом под стекло, стекло не поставляется.</p></details>
+    <details class="faq"><summary>Можно ли вернуть фасады?</summary><p>Фасады изготавливаются по индивидуальным размерам, поэтому условия возврата ограничены — они указаны в публичной оферте. Перед заказом вы подтверждаете ознакомление с рисками выбранной технологии.</p></details>
+    <details class="faq"><summary>Как оплатить компании с НДС?</summary><p>Выберите «Юрлицо» или «ИП» при оформлении и способ «Оплата по счёту» — счёт сформируется автоматически по реквизитам. ЭСФ выставляется в ИС ЭСФ.</p></details>
+    <details class="faq"><summary>Сколько ехать фасадам в Алматы или Астану?</summary><p>Астана — 3–6 дней в пути, Алматы — 5–8 дней. Точная дата отображается в конфигураторе после выбора города.</p></details>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Контакты</span><h2>Производство и склад в Павлодаре</h2></div>
+    <div class="split">
+      <ul class="contact-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><b>Адрес</b><br>г. Павлодар, ул. [адрес производства] <span class="muted small">(плейсхолдер)</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><div><b>Телефон</b><br><a href="tel:+77182000000">+7 (7182) 00-00-00</a></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.3-4A8 8 0 1 1 8.6 19z"/></svg><div><b>Мессенджеры</b><br><a href="https://wa.me/77000000000" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://t.me/" target="_blank" rel="noopener">Telegram</a></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Часы работы</b> <span class="muted small">(время Казахстана, UTC+5)</span><br>Пн–Пт 9:00–18:00, Сб 10:00–15:00</div></li>
+      </ul>
+      <div class="map"><div><b>Карта 2ГИС</b><p class="muted small" style="margin:6px 0 12px">Здесь будет виджет 2ГИС с точкой производства</p><a class="btn btn-ghost btn-sm" href="https://2gis.kz/pavlodar" target="_blank" rel="noopener">Открыть 2ГИС</a></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid-f">
+      <div>
+        <a class="logo" href="#top"><svg width="28" height="28" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" rx="4" fill="#A0612B"/><rect x="7" y="7" width="16" height="16" rx="1.5" fill="none" stroke="#2B2F33" stroke-width="2.5"/></svg>ФасадЛаб</a>
+        <p class="mt">Мебельные фасады из МДФ на заказ. Производство в Павлодаре, доставка по всему Казахстану.</p>
+        <p class="small">ТОО «[Название]» · БИН 000000000000 (плейсхолдер)<br>г. Павлодар · Учебный проект</p>
+      </div>
+      <div><h4>Покупателям</h4><ul><li><a href="#configurator">Конфигуратор</a></li><li><a href="#samples">Образцы цвета</a></li><li><a href="#delivery">Доставка</a></li><li><a href="#tracking">Отследить заказ</a></li></ul></div>
+      <div><h4>Документы</h4><ul><li><button class="linkbtn" data-doc="offer">Публичная оферта</button></li><li><button class="linkbtn" data-doc="privacy">Политика конфиденциальности</button></li><li><button class="linkbtn" data-doc="pd">Согласие на обработку персональных данных</button></li></ul></div>
+    </div>
+    <p class="small" style="margin:28px 0 0;border-top:1px solid rgba(255,255,255,.1);padding-top:18px">© 2026 ФасадЛаб. Все цены указаны в тенге с НДС.</p>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar" aria-label="Итоговая цена">
+  <div><div class="mbt" id="mbT">—</div><div class="small muted" id="mbD"></div></div>
+  <button class="btn btn-cta" id="mbB">Далее</button>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+'use strict';
+/* ============================ Утилиты ============================ */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const r10=n=>Math.round(n/10)*10;
+const fmt=n=>{const v=r10(n);return (v<0?'−':'')+Math.abs(v).toLocaleString('ru-RU')+' ₸'};
+const fnum=(n,d=2)=>Number(n).toLocaleString('ru-RU',{maximumFractionDigits:d});
+const fk=k=>'× '+k.toFixed(2).replace('.',',');
+const clone=o=>JSON.parse(JSON.stringify(o));
+const uid=()=>Math.random().toString(36).slice(2,9);
+const fdate=(d,o={day:'numeric',month:'long'})=>new Date(d).toLocaleDateString('ru-RU',o);
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+function addWorkdays(d,n){const x=new Date(d);let k=0;while(k<n){x.setDate(x.getDate()+1);const w=x.getDay();if(w!==0&&w!==6)k++}return x}
+function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x}
+function hexRgb(h){h=String(h).replace('#','');if(h.length===3)h=h.split('').map(c=>c+c).join('');const n=parseInt(h,16)||0;return[(n>>16)&255,(n>>8)&255,n&255]}
+function rgbHex(r,g,b){return '#'+[r,g,b].map(x=>Math.max(0,Math.min(255,Math.round(x))).toString(16).padStart(2,'0')).join('')}
+function mix(a,b,t){const A=hexRgb(a),B=hexRgb(b);return rgbHex(A[0]+(B[0]-A[0])*t,A[1]+(B[1]-A[1])*t,A[2]+(B[2]-A[2])*t)}
+function lum(hex){const c=hexRgb(hex).map(v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*c[0]+.7152*c[1]+.0722*c[2]}
+const phoneDigits=v=>{let s=String(v||'').trim(),d;if(s.startsWith('+7'))d=s.slice(2).replace(/\D/g,'');else{d=s.replace(/\D/g,'');if(d.length===11&&/^[78]/.test(d))d=d.slice(1)}return d.slice(0,10)};
+function maskPhone(v){const p=phoneDigits(v);let o='+7';if(p.length)o+=' '+p.slice(0,3);if(p.length>3)o+=' '+p.slice(3,6);if(p.length>6)o+='-'+p.slice(6,8);if(p.length>8)o+='-'+p.slice(8,10);return p.length?o:'+7 '}
+const validPhone=v=>/^7\d{9}$/.test(phoneDigits(v));
+const normPhone=v=>'+7'+phoneDigits(v);
+const prettyPhone=v=>maskPhone(v);
+function toast(msg,kind='',ms=4200){const t=document.createElement('div');t.className='toast '+kind;t.innerHTML=msg;$('#toasts').append(t);setTimeout(()=>t.remove(),ms)}
+function bindPhoneMask(inp){inp.addEventListener('input',()=>{inp.value=maskPhone(inp.value)})}
+
+/* ============================ Настройки (как в админке) ============================ */
+const BRAND='ФасадЛаб';
+const CFG={vat:16,minOrder:50000,prepayDiscount:.02,load:1.0,urgentAvailable:true,urgentK:.30,urgentDays:.6,hingePrice:700,holePrice:400,samplePaid:3000,freeSamples:5,packRigid:1500,priceFixDays:3,freeDeliveryZone1:300000};
+
+const COATINGS={
+  pvc:{name:'Плёнка ПВХ',vlabel:'Вид плёнки',variants:{matte:{n:'Матовая',p:28000},gloss:{n:'Глянцевая',p:32000},wood:{n:'Под дерево',p:28000},texture:{n:'Текстурированная',p:28000}},th:[16,19],min:[100,100],max:[2400,1200],days:7,millings:['smooth','handle','modern','shaker','classic','vitrine'],
+    swatch:'linear-gradient(135deg,#D8C3A5,#B9946A)',pros:'Доступная цена, много декоров, быстрые сроки',risks:'Отслоение от нагрева, возможное выгорание, сложно отремонтировать, нельзя перекрасить',where:'Бюджетные кухни, шкафы, детские',care:'Без пара и растворителей'},
+  enamel:{name:'Эмаль',sub:'крашеный МДФ',vlabel:'Степень блеска',variants:{matte:{n:'Матовая',p:48000,days:12},semi:{n:'Полуматовая',p:52000,days:12},gloss:{n:'Глянцевая',p:68000,days:15}},th:[16,19,22],min:[70,70],max:[2750,1200],days:12,millings:['smooth','handle','modern','shaker','classic','vitrine'],
+    swatch:'linear-gradient(135deg,#9AAE8A,#6F8A6E)',pros:'Любой цвет RAL/NCS, любая фрезеровка, ремонтопригодна',risks:'Сколы от ударов, на глянце видны отпечатки, выше цена и срок',where:'Кухни, гостиные, премиум',care:'Мягкие средства без абразивов'},
+  veneer:{name:'Шпон натуральный',vlabel:'Порода',variants:{oak:{n:'Дуб',p:85000},ash:{n:'Ясень',p:85000},walnut:{n:'Орех американский',p:105000}},th:[19,22],min:[100,100],max:[2500,1200],days:18,millings:['smooth','shaker','classic','vitrine'],
+    swatch:'repeating-linear-gradient(97deg,#C29466 0 7px,#A97B4F 7px 9px,#BB8D60 9px 15px,#9F7248 15px 16px)',pros:'Натуральное дерево, уникальный рисунок',risks:'Отличие рисунка от образца, чувствительность к влаге и солнцу, высокая цена',where:'Классика, эко-интерьеры, гостиные',care:'Средства для дерева, без избытка влаги'},
+  hpl:{name:'Пластик HPL',vlabel:'',variants:{std:{n:'Стандарт',p:45000}},th:[19],min:[100,100],max:[2750,1200],days:7,millings:['smooth'],
+    swatch:'linear-gradient(135deg,#55595D,#2F3336)',pros:'Высокая износостойкость и стойкость к нагреву',risks:'Только гладкие фасады, видимая кромка на торцах',where:'Кухни с интенсивной эксплуатацией',care:'Любые неабразивные средства'},
+  acryl:{name:'Акрил',vlabel:'',variants:{gloss:{n:'Глянцевый',p:55000}},th:[19],min:[100,100],max:[2750,1200],days:7,millings:['smooth'],
+    swatch:'linear-gradient(135deg,#FFFFFF 0%,#E6E6E6 42%,#FFFFFF 52%,#D9D9D9 100%)',pros:'Глубокий глянец, яркие цвета',risks:'Только гладкие, царапины на поверхности',where:'Современные кухни',care:'Мягкие салфетки, полироли для акрила'}
+};
+const MILLINGS={
+  smooth:{n:'Гладкий',k:1.00,min:0,d:'Ровная поверхность, радиус кромки 1–3 мм'},
+  handle:{n:'С интегрированной ручкой',k:1.10,min:0,d:'Профиль-захват по верхнему или боковому краю'},
+  modern:{n:'Модерн',k:1.15,min:150,d:'Простой геометрический рисунок'},
+  shaker:{n:'Рамочный (Shaker)',k:1.20,min:200,d:'Рамка 60 мм с плоской филёнкой'},
+  classic:{n:'Классика',k:1.30,min:250,d:'Рамка с фигурной филёнкой'},
+  vitrine:{n:'Витрина',k:1.35,min:250,d:'Рамка под стекло (стекло не поставляется)'}
+};
+const TH_K={16:.95,19:1,22:1.10};
+const TYPES={door:'Дверь',drawer:'Ящик',blind:'Заглушка',vitrine:'Витрина'};
+const SIDES={left:'Слева',right:'Справа',top:'Сверху',bottom:'Снизу'};
+const CC=[96,128,160,192,224,256,320];
+const STEPS=['Покрытие','Фрезеровка','Цвет','Размеры','Проверка'];
+
+const RAL=[
+['9003','Сигнальный белый','#EEEDE8'],['9010','Чистый белый','#F1ECE1'],['9016','Транспортный белый','#F1F0EA'],['9001','Кремово-белый','#E9E0D2'],['1013','Жемчужно-белый','#E3D9C6'],['1015','Светлая слоновая кость','#E6D2B5'],
+['9002','Серо-белый','#D7D5CB'],['7047','Телегрей 4','#D0D0CE'],['7035','Светло-серый','#CBD0CC'],['7044','Шёлковый серый','#B8B4A9'],['7032','Галечный серый','#B5B0A1'],['1019','Серо-бежевый','#A48F7A'],
+['7036','Платиново-серый','#9A9697'],['7040','Серое окно','#9DA3A6'],['7037','Пыльно-серый','#7A7B7A'],['7015','Сланцево-серый','#51565C'],['7024','Графитовый серый','#45494E'],['7016','Антрацитово-серый','#383E42'],
+['7021','Чёрно-серый','#2F3234'],['9005','Глубокий чёрный','#0E0E10'],['6021','Бледно-зелёный','#8DA47E'],['5014','Голубино-синий','#637D96'],['5011','Стальной синий','#1A2B3C'],['3005','Винно-красный','#5E2028'],
+['8017','Шоколадно-коричневый','#45302B'],['8014','Сепия','#4A3526'],['8025','Бледно-коричневый','#765C48'],['1001','Бежевый','#D0B084'],['1014','Слоновая кость','#DDC49A'],['3012','Бежево-красный','#C6846D'],
+['3015','Светло-розовый','#D8A0A6'],['3020','Транспортный красный','#C1121C'],['3004','Пурпурно-красный','#6B1C23'],['2010','Сигнальный оранжевый','#D05D28'],['1023','Транспортный жёлтый','#F0CA00'],['5024','Пастельно-синий','#6093AC'],
+['5003','Сапфирово-синий','#1D334A'],['5008','Серо-синий','#26303A'],['5002','Ультрамарин','#20214F'],['6005','Зелёный мох','#0F4336'],['6011','Резедово-зелёный','#68825B'],['6019','Бело-зелёный','#B7D9B1'],
+['6028','Сосновый зелёный','#2C5545'],['6003','Оливково-зелёный','#50533C'],['6013','Тростниково-зелёный','#7C765A'],['4009','Пастельно-фиолетовый','#A18594'],['7030','Каменно-серый','#939388'],['7038','Агатовый серый','#B0B0A9'],
+['7039','Кварцевый серый','#6B695F'],['7006','Бежево-серый','#736B5E'],['7012','Базальтово-серый','#575D5E'],['8019','Серо-коричневый','#3D3635'],['9004','Сигнальный чёрный','#2B2B2C'],['9006','Бело-алюминиевый','#A5A8A6'],['9007','Серый алюминий','#8F8F8C']
+];
+const RAL_BY=Object.fromEntries(RAL.map(r=>[r[0],r]));
+const colorRAL=code=>{const r=RAL_BY[code]||RAL[0];return{id:'RAL'+r[0],sys:'RAL',code:r[0],name:'RAL '+r[0]+' '+r[1],hex:r[2],kind:'uni'}};
+const D=(id,name,hex,kind='uni')=>({id,name,hex,kind,sys:'decor'});
+const DECORS={
+  pvc_matte:[D('pm1','Белый софт','#F2F0EB'),D('pm2','Кашемир','#D9CFC1'),D('pm3','Серый софт','#A9ABA8'),D('pm4','Графит софт','#3A3D40'),D('pm5','Олива','#7D8160'),D('pm6','Синий шторм','#3E5468')],
+  pvc_gloss:[D('pg1','Белый глянец','#FAFAF8'),D('pg2','Ваниль глянец','#F1E6CC'),D('pg3','Капучино глянец','#B79C82'),D('pg4','Серый глянец','#8E9296'),D('pg5','Чёрный глянец','#16181A'),D('pg6','Бордо глянец','#6E1E2A')],
+  pvc_wood:[D('pw1','Дуб сонома','#C9A97E','wood'),D('pw2','Дуб крафт золотой','#B9894F','wood'),D('pw3','Ясень шимо светлый','#D8CBB5','wood'),D('pw4','Орех экко','#7A5539','wood'),D('pw5','Венге','#3E2C22','wood'),D('pw6','Дуб серый','#9A948A','wood')],
+  pvc_texture:[D('pt1','Бетон светлый','#B7B4AE','texture'),D('pt2','Лён белый','#ECE7DC','linen'),D('pt3','Камень графит','#4A4C4E','texture'),D('pt4','Металлик серебро','#A7AAAD','metal')],
+  hpl:[D('h1','Белый','#F3F2EE'),D('h2','Серый','#9EA1A3'),D('h3','Антрацит','#3B3F43'),D('h4','Чёрный','#1C1D1F'),D('h5','Дуб натуральный','#C49A6C','wood'),D('h6','Орех','#6E4B33','wood'),D('h7','Дуб тёмный','#5A4434','wood')],
+  acryl:[D('a1','Белый','#FBFBFA'),D('a2','Ваниль','#F2E5C9'),D('a3','Кашемир','#D6C8B6'),D('a4','Серый','#8D9094'),D('a5','Графит','#2E3235'),D('a6','Чёрный','#111214'),D('a7','Красный','#A11D24'),D('a8','Синий','#1F3B5C'),D('a9','Изумруд','#1F5A4A')]
+};
+const VENEER_BASE={oak:'#C49A6C',ash:'#D9C3A0',walnut:'#6B4A33'};
+const VENEER_TONES=[['nat','Натуральный'],['light','Светлая тонировка'],['honey','Медовая'],['medium','Средняя'],['dark','Тёмная'],['grey','Серая']];
+function veneerColor(sp,tone){const b=VENEER_BASE[sp]||VENEER_BASE.oak;const t={nat:b,light:mix(b,'#FFFFFF',.32),honey:mix(b,'#C8862E',.38),medium:mix(b,'#4A2E1A',.3),dark:mix(b,'#22150D',.6),grey:mix(b,'#8C8A84',.6)}[tone]||b;const tn=(VENEER_TONES.find(x=>x[0]===tone)||VENEER_TONES[0])[1];return{id:'v_'+sp+'_'+tone,sys:'veneer',name:COATINGS.veneer.variants[sp].n+', '+tn.toLowerCase(),hex:t,kind:'veneer'}}
+
+const CITIES=[['pickup','Самовывоз — склад в Павлодаре',0],['Павлодар','Павлодар',1],['Экибастуз','Экибастуз',2],['Аксу','Аксу',2],['Павлодарская обл.','Павлодарская обл. (другой н. п.)',2],
+['Астана','Астана',3],['Караганда','Караганда',3],['Семей','Семей',3],['Усть-Каменогорск','Усть-Каменогорск',3],['Петропавловск','Петропавловск',3],['Кокшетау','Кокшетау',3],['Костанай','Костанай',3],
+['Алматы','Алматы',4],['Шымкент','Шымкент',4],['Тараз','Тараз',4],['Актобе','Актобе',4],['Талдыкорган','Талдыкорган',4],
+['Атырау','Атырау',5],['Актау','Актау',5],['Уральск','Уральск',5],['Кызылорда','Кызылорда',5],['Жезказган','Жезказган',5],['other','Другой населённый пункт',5]];
+const cityBy=id=>{const c=CITIES.find(x=>x[0]===id)||CITIES[0];return{id:c[0],name:c[1],zone:c[2]}};
+const ZONES={0:{n:'Самовывоз',tariff:'бесплатно',tr:[0,0],c:'#6F8A6E'},1:{n:'Зона 1',tariff:'5 000 ₸, бесплатно от 300 000 ₸',tr:[1,1],c:'#6F8A6E'},2:{n:'Зона 2',tariff:'8 000 ₸ + 50 ₸/кг',tr:[1,3],c:'#8FA06A'},3:{n:'Зона 3',tariff:'150 ₸/кг, мин. 10 000 ₸',tr:[3,6],c:'#C9A15B'},4:{n:'Зона 4',tariff:'200 ₸/кг, мин. 12 000 ₸',tr:[5,8],c:'#A0612B'},5:{n:'Зона 5',tariff:'250 ₸/кг, мин. 15 000 ₸',tr:[6,10],c:'#7F4C21'}};
+function deliveryCost(zone,weight,goods){switch(zone){case 0:return 0;case 1:return goods>=CFG.freeDeliveryZone1?0:5000;case 2:return 8000+50*weight;case 3:return Math.max(10000,150*weight);case 4:return Math.max(12000,200*weight);default:return Math.max(15000,250*weight)}}
+const cityOptions=sel=>CITIES.map(c=>`<option value="${esc(c[0])}" ${c[0]===sel?'selected':''}>${esc(c[1])}${c[2]?' · зона '+c[2]:''}</option>`).join('');
+
+const STATUSES=['Новый','Ожидает предоплаты','Предоплата получена — в очереди на производство','В производстве','Готов к выдаче','Ожидает доплаты','Передан в доставку','Получен'];
+const PROD=['Раскрой','Фрезеровка','Облицовка / покраска','Сушка','Контроль качества'];
+
+/* ============================ Состояние ============================ */
+function newItem(p={}){return Object.assign({id:uid(),h:716,w:396,t:19,qty:1,type:'door',grain:'v',hinges:{on:false,side:'left',count:2,auto:true,offset:100},handle:{mode:'none',cc:128,pos:'top'},stove:false},p)}
+function defaultState(){
+  const a=newItem({h:716,w:396,qty:4});a.hinges.on=true;
+  const b=newItem({h:716,w:596,qty:1,stove:true});b.hinges.on=true;b.hinges.side='right';
+  const c=newItem({h:356,w:596,qty:2,type:'drawer'});c.handle={mode:'bar',cc:160,pos:'center'};
+  return{v:1,step:1,coating:'enamel',variant:'matte',milling:'shaker',handleEdge:'top',color:colorRAL('7044'),lastRal:'7044',ncsCode:'S 1502-Y',ncsHex:'#E2DCCD',opts:{metallic:false,patina:false,double:false},lacquer:'matte',tone:'nat',items:[a,b,c],sel:0,city:'pickup',urgent:false};
+}
+let S=Object.assign(defaultState(),store.get('fl_state',{}));
+if(!COATINGS[S.coating])S=defaultState();
+let USER=store.get('fl_user',null);
+let ORDERS=store.get('fl_orders',[]);
+let SAMPLES=store.get('fl_samples',[]);
+let ralQuery='';
+const save=()=>store.set('fl_state',S);
+const saveOrders=()=>store.set('fl_orders',ORDERS);
+function withState(st,fn){const prev=S;S=st;try{return fn()}finally{S=prev}}
+
+/* ============================ Логика расчёта ============================ */
+const canHinge=it=>it.type==='door'||it.type==='vitrine';
+const effMilling=it=>it&&it.type==='vitrine'?'vitrine':S.milling;
+const hingeAuto=h=>h<=900?2:h<=1600?3:h<=2000?4:5;
+const holesCount=it=>!it.handle||it.type==='blind'?0:it.handle.mode==='knob'?1:it.handle.mode==='bar'?2:0;
+const hingeCount=it=>it.hinges&&it.hinges.on&&canHinge(it)?(+it.hinges.count||0):0;
+const variantObj=()=>COATINGS[S.coating].variants[S.variant]||Object.values(COATINGS[S.coating].variants)[0];
+function kOptItem(it){let k=1;if(S.coating==='enamel'){if(S.color.sys==='NCS')k*=1.10;if(S.opts.metallic)k*=1.20;if(S.opts.patina&&effMilling(it)==='classic')k*=1.15;if(S.opts.double)k*=1.40}return k}
+function finishOf(){const c=S.coating,v=S.variant;if(c==='pvc')return v==='gloss'?'gloss':'matte';if(c==='enamel')return v;if(c==='veneer')return S.lacquer==='semi'?'semi':'matte';if(c==='acryl')return'gloss';return'matte'}
+function calc(){
+  const c=COATINGS[S.coating],base=variantObj().p;
+  let sum=0,area=0,weight=0,count=0;const lines=[];
+  S.items.forEach(it=>{
+    const h=+it.h||0,w=+it.w||0,q=Math.max(0,Math.floor(+it.qty||0));
+    const a=h*w/1e6,bill=Math.max(a,.1),M=MILLINGS[effMilling(it)];
+    const face=bill*base*(TH_K[it.t]||1)*M.k*kOptItem(it);
+    const hc=hingeCount(it),hl=holesCount(it);
+    const unit=face+hc*CFG.hingePrice+hl*CFG.holePrice;
+    lines.push({a,bill,face,hc,hl,unit,q,total:unit*q});
+    sum+=unit*q;area+=a*q;count+=q;weight+=a*((+it.t||19)/1000)*750*1.1*q;
+  });
+  const discRate=area>=30?.08:area>=15?.05:area>=5?.03:0;
+  const disc=sum*discRate;
+  const urgent=S.urgent&&CFG.urgentAvailable?(sum-disc)*CFG.urgentK:0;
+  const goods=sum-disc+urgent;
+  const city=cityBy(S.city),zone=city.zone;
+  const pack=zone>=3?area*CFG.packRigid:0;
+  const deliv=area>0?deliveryCost(zone,weight,goods):0;
+  const total=r10(goods)+r10(pack)+r10(deliv);
+  const vat=total*CFG.vat/(100+CFG.vat);
+  const baseDays=variantObj().days||c.days;
+  const extra=area>10?Math.ceil((area-10)/10):0;
+  const opt=S.coating==='enamel'&&(S.opts.metallic||(S.opts.patina&&S.items.some(it=>effMilling(it)==='classic')))?2:0;
+  let days=Math.ceil((baseDays+extra+opt)*CFG.load);
+  if(S.urgent&&CFG.urgentAvailable)days=Math.ceil(days*CFG.urgentDays);
+  const ready=addWorkdays(new Date(),days);
+  return{lines,sum,discRate,disc,urgent,goods,pack,deliv,total,vat,area,weight,count,days,ready,tr:ZONES[zone].tr,zone,city,minOk:goods>=CFG.minOrder};
+}
+function validate(it){
+  const e=[],c=COATINGS[S.coating],m=effMilling(it),M=MILLINGS[m],h=+it.h,w=+it.w;
+  if(!h||!w)e.push('Укажите высоту и ширину.');
+  else{
+    if(h<c.min[0]||w<c.min[1])e.push(`Минимальный размер для покрытия «${c.name}» — ${c.min[0]} × ${c.min[1]} мм.`);
+    if(Math.max(h,w)>c.max[0]||Math.min(h,w)>c.max[1])e.push(`Максимальный размер для покрытия «${c.name}» — ${c.max[0]} × ${c.max[1]} мм (большая сторона до ${c.max[0]}, меньшая до ${c.max[1]}).`);
+    if(M.min&&(h<M.min||w<M.min))e.push(`Фрезеровка «${M.n}» выполняется от ${M.min} × ${M.min} мм.`);
+    if(m==='handle'){const top=S.handleEdge==='top',side=top?w:h;if(side<200)e.push(`Для интегрированной ручки ${top?'ширина':'высота'} фасада — от 200 мм.`)}
+  }
+  if(!c.millings.includes(m))e.push(`Тип «Витрина» недоступен для покрытия «${c.name}» — только гладкие фасады.`);
+  if(!(+it.qty>=1))e.push('Количество — не меньше 1 шт.');
+  if(!c.th.includes(+it.t))e.push(`Толщина ${it.t} мм недоступна. Возможные: ${c.th.join(', ')} мм.`);
+  if(it.hinges.on&&canHinge(it)&&h&&w){
+    const n=+it.hinges.count,len=['left','right'].includes(it.hinges.side)?h:w,off=+it.hinges.offset;
+    if(!(n>=1&&n<=6))e.push('Количество петель — от 1 до 6.');
+    else if(!(off>=40)||(n>1&&off*2>=len-30))e.push(`Отступ крайних петель должен быть от 40 мм и меньше половины длины стороны (${len} мм).`);
+  }
+  if(it.handle.mode==='bar'&&h&&w&&it.type!=='blind'){const span=it.type==='drawer'||['top','bottom'].includes(it.hinges.on?it.hinges.side:'left')?w:h;if(+it.handle.cc>span-60)e.push('Межосевое расстояние ручки слишком большое для этого фасада.')}
+  return e;
+}
+const allErrors=()=>S.items.map(validate);
+const hasErrors=()=>allErrors().some(x=>x.length);
+function itemWarn(it){
+  const h=+it.h,w=+it.w,o=[];if(!h||!w)return o;
+  if(h>1800&&+it.t===16)o.push(['warp','Высота более 1800 мм при толщине 16 мм — риск коробления, рекомендуем 19–22 мм.']);
+  if(Math.max(h,w)/Math.min(h,w)>6)o.push(['ratio','Узкий длинный фасад (соотношение сторон более 6:1) может деформироваться.']);
+  if(S.coating==='pvc'&&it.stove)o.push(['stove','Плёнка ПВХ рядом с плитой или духовкой может отслоиться от нагрева — нужен термоэкран или другое покрытие.']);
+  return o;
+}
+function warnings(){
+  const map=new Map(),add=(k,t,i)=>{if(!map.has(k))map.set(k,{txt:t,items:[]});if(i!=null)map.get(k).items.push(i+1)};
+  S.items.forEach((it,i)=>itemWarn(it).forEach(([k,t])=>add(k,t,i)));
+  if((S.coating==='enamel'&&S.variant==='gloss')||S.coating==='acryl'||(S.coating==='pvc'&&S.variant==='gloss'))add('gloss','На глянце заметны отпечатки пальцев и мелкие царапины.');
+  if(finishOf()!=='gloss'&&lum(S.color.hex)<.08)add('dark','Тёмные матовые цвета: могут быть заметны следы от рук.');
+  if(S.coating==='veneer')add('veneer','Рисунок натуральной древесины уникален и может отличаться от фото.');
+  return[...map.values()];
+}
+function defaultColor(){
+  if(S.coating==='enamel')return colorRAL(S.lastRal||'9003');
+  if(S.coating==='veneer')return veneerColor(S.variant,S.tone);
+  return decorList()[0];
+}
+function decorList(){return S.coating==='pvc'?DECORS['pvc_'+S.variant]:S.coating==='hpl'?DECORS.hpl:DECORS.acryl}
+function lookFor(it,mill){
+  it=it||{type:'door',grain:'v',hinges:{on:false,side:'left'}};
+  const m=mill||effMilling(it),c=S.coating;
+  return{fill:S.color.hex,kind:c==='veneer'?'veneer':(S.color.kind||'uni'),finish:finishOf(),metallic:c==='enamel'&&S.opts.metallic,patina:c==='enamel'&&S.opts.patina&&m==='classic',milling:m,handleEdge:S.handleEdge,hingeSide:it.hinges&&it.hinges.on?it.hinges.side:'left',grain:it.grain||'v'};
+}
+const coatLabel=()=>COATINGS[S.coating].name+(Object.keys(COATINGS[S.coating].variants).length>1?', '+variantObj().n.toLowerCase():'');
+function optsLabel(){const o=[];if(S.coating==='enamel'){if(S.opts.metallic)o.push('металлик');if(S.opts.patina&&S.milling==='classic')o.push('патина');if(S.opts.double)o.push('двусторонняя покраска')}if(S.coating==='veneer')o.push(S.lacquer==='semi'?'лак полуматовый':'лак матовый');return o.join(', ')}
+function hingeText(it){if(!canHinge(it))return'—';if(!it.hinges.on)return'Без присадки';return`Петли: ${it.hinges.count} шт., ${SIDES[it.hinges.side].toLowerCase()}, отступ ${it.hinges.offset} мм`}
+function handleText(it){const n=holesCount(it);if(!n)return'Без отверстий под ручку';return n===1?'Ручка-кнопка: 1 отверстие':`Ручка-скоба: 2 отверстия, ${it.handle.cc} мм`}
+
+/* ============================ Отрисовка фасада (SVG) ============================ */
+let UID=0;
+function hingePos(it){
+  const h=+it.h,w=+it.w,n=Math.max(0,Math.min(6,+it.hinges.count||0)),off=+it.hinges.offset||100,side=it.hinges.side,len=['left','right'].includes(side)?h:w,e=22,pts=[];
+  for(let k=0;k<n;k++)pts.push(n===1?len/2:off+(len-2*off)*k/(n-1));
+  return pts.map(t=>side==='left'?[e,t]:side==='right'?[w-e,t]:side==='top'?[t,e]:[t,h-e]);
+}
+function holePos(it){
+  const n=holesCount(it);if(!n)return[];
+  const h=+it.h,w=+it.w,cc=+it.handle.cc,pos=it.handle.pos;
+  const row=(cx,y)=>n===1?[[cx,y]]:[[cx-cc/2,y],[cx+cc/2,y]];
+  if(it.type==='drawer')return row(w/2,pos==='center'?h/2:Math.min(40,h/2));
+  const hs=it.hinges.on?it.hinges.side:'left';
+  if(hs==='top'||hs==='bottom')return row(w/2,hs==='top'?h-40:40);
+  const x=hs==='left'?w-40:40,cy=pos==='top'?Math.min(h/2,70+cc/2):pos==='bottom'?Math.max(h/2,h-70-cc/2):h/2;
+  return n===1?[[x,cy]]:[[x,cy-cc/2],[x,cy+cc/2]];
+}
+function texFilter(id,L){
+  const k=L.kind;if(!['wood','veneer','texture','linen','metal'].includes(k))return'';
+  const[r,g,b]=hexRgb(L.fill).map(v=>v/255),dk=k==='wood'||k==='veneer'?.62:.48,R=(r*dk).toFixed(3),G=(g*dk).toFixed(3),B=(b*dk).toFixed(3);
+  let bf,oct=3,a;
+  if(k==='wood'||k==='veneer'){bf=L.grain==='h'?'0.003 0.07':'0.07 0.003';a=k==='veneer'?'2.8 0 0 0 -1.15':'2.2 0 0 0 -.95'}
+  else if(k==='linen'){bf='0.4 0.4';oct=2;a='2 0 0 0 -.85'}
+  else if(k==='metal'){bf='0.002 0.5';oct=2;a='1.7 0 0 0 -.65'}
+  else{bf='0.035';oct=4;a='2.3 0 0 0 -.95'}
+  return`<filter id="${id}t" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="${bf}" numOctaves="${oct}" seed="${L.seed||4}" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 ${R} 0 0 0 0 ${G} 0 0 0 0 ${B} ${a}" result="c"/><feComposite in="c" in2="SourceAlpha" operator="in"/></filter>`;
+}
+function facadeG(L,it,o={}){
+  const id='f'+(++UID),W=Math.max(1,+it.w||0),H=Math.max(1,+it.h||0),k=Math.min(W,H);
+  const dark=lum(L.fill)<.1;
+  const SH=dark?'rgba(0,0,0,.6)':'rgba(0,0,0,.2)',HL=dark?'rgba(255,255,255,.15)':'rgba(255,255,255,.6)';
+  const PSH=L.patina?'rgba(118,76,22,.75)':SH;
+  const gw=Math.max(2.5,k*.01);
+  const bev=(x,y,w,h,b,tl,br)=>{const X=x+w,Y=y+h;return`<path d="M${x} ${y}H${X}L${X-b} ${y+b}H${x+b}V${Y-b}L${x} ${Y}Z" fill="${tl}"/><path d="M${X} ${y}V${Y}H${x}L${x+b} ${Y-b}H${X-b}V${y+b}Z" fill="${br}"/>`};
+  const grv=(x,y,w,h,rx,col)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="none" stroke="${col||SH}" stroke-width="${gw}"/><rect x="${x+gw*.7}" y="${y+gw*.7}" width="${Math.max(0,w-gw*1.4)}" height="${Math.max(0,h-gw*1.4)}" rx="${rx}" fill="none" stroke="${HL}" stroke-width="${gw*.45}"/>`;
+  let defs='',body='';const m=L.milling||'smooth';
+  let f=0,shape=`M0 0H${W}V${H}H0Z`;
+  if(m==='vitrine'){f=Math.min(60,k*.18);shape+=`M${f} ${f}V${H-f}H${W-f}V${f}Z`}
+  body+=`<path d="${shape}" fill="${L.fill}" fill-rule="evenodd"/>`;
+  const tf=texFilter(id,L);if(tf){defs+=tf;body+=`<path d="${shape}" fill-rule="evenodd" fill="#000" filter="url(#${id}t)"/>`}
+  if(m==='shaker'){f=Math.min(60,k*.2);body+=bev(f,f,W-2*f,H-2*f,Math.max(4,k*.014),SH,HL)}
+  else if(m==='classic'){
+    f=Math.min(70,k*.2);const b=Math.max(4,k*.012),ix=f+b,iw=W-2*ix,ih=H-2*ix,b2=Math.max(6,Math.min(26,Math.min(iw,ih)*.12));
+    body+=bev(f,f,W-2*f,H-2*f,b,PSH,HL)+bev(ix,ix,iw,ih,b2,HL,PSH);
+    const g=b2+Math.max(10,k*.035);if(iw-2*g>20&&ih-2*g>20)body+=grv(ix+g,ix+g,iw-2*g,ih-2*g,Math.min(16,k*.045),PSH);
+  }
+  else if(m==='modern'){
+    const i=Math.min(50,k*.14);body+=grv(i,i,W-2*i,H-2*i,0);
+    if(H>W*1.15){const y=i+(H-2*i)*.3;body+=`<line x1="${i}" y1="${y}" x2="${W-i}" y2="${y}" stroke="${SH}" stroke-width="${gw}"/><line x1="${i}" y1="${y+gw*.8}" x2="${W-i}" y2="${y+gw*.8}" stroke="${HL}" stroke-width="${gw*.45}"/>`}
+    else{const x=i+(W-2*i)*.5;body+=`<line x1="${x}" y1="${i}" x2="${x}" y2="${H-i}" stroke="${SH}" stroke-width="${gw}"/>`}
+  }
+  else if(m==='handle'){
+    const t=Math.min(32,k*.12),side=L.handleEdge==='side'?(L.hingeSide==='right'?'left':'right'):'top';
+    if(side==='top'){defs+=`<linearGradient id="${id}h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset="1" stop-color="#000" stop-opacity=".12"/></linearGradient>`;body+=`<rect x="0" y="0" width="${W}" height="${t}" fill="url(#${id}h)"/><line x1="0" y1="${t}" x2="${W}" y2="${t}" stroke="${HL}" stroke-width="1.5"/>`}
+    else{const x=side==='right'?W-t:0;defs+=`<linearGradient id="${id}h" x1="${side==='right'?1:0}" y1="0" x2="${side==='right'?0:1}" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset="1" stop-color="#000" stop-opacity=".12"/></linearGradient>`;body+=`<rect x="${x}" y="0" width="${t}" height="${H}" fill="url(#${id}h)"/>`}
+  }
+  else if(m==='vitrine'){
+    const b=Math.max(4,k*.014);body+=bev(f-b,f-b,W-2*(f-b),H-2*(f-b),b,SH,HL);
+    if(o.labels!==false&&W-2*f>120&&H-2*f>120)body+=`<text x="${W/2}" y="${H/2}" text-anchor="middle" font-family="Inter,sans-serif" font-size="${Math.max(14,k*.05)}" fill="#8C9094">проём под стекло</text>`;
+  }
+  body+=bev(0,0,W,H,Math.max(1.5,k*.006),HL,dark?'rgba(0,0,0,.5)':'rgba(0,0,0,.12)');
+  if(L.metallic){defs+=`<linearGradient id="${id}m" x1="0" y1="0" x2="1" y2=".45"><stop offset="0" stop-color="#fff" stop-opacity=".32"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/><stop offset=".62" stop-color="#000" stop-opacity=".14"/><stop offset="1" stop-color="#fff" stop-opacity=".26"/></linearGradient>`;body+=`<path d="${shape}" fill-rule="evenodd" fill="url(#${id}m)"/>`}
+  if(L.finish==='gloss'||L.finish==='semi'){const op=L.finish==='gloss'?.5:.2;defs+=`<linearGradient id="${id}g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="${op}"/><stop offset=".3" stop-color="#fff" stop-opacity="0"/><stop offset=".58" stop-color="#fff" stop-opacity="0"/><stop offset=".64" stop-color="#fff" stop-opacity="${op*.55}"/><stop offset=".72" stop-color="#fff" stop-opacity="0"/></linearGradient>`;body+=`<path d="${shape}" fill-rule="evenodd" fill="url(#${id}g)"/>`}
+  body+=`<path d="${shape}" fill="none" fill-rule="evenodd" stroke="rgba(0,0,0,.32)" stroke-width="1" vector-effect="non-scaling-stroke"/>`;
+  if(o.marks&&it.hinges&&it.hinges.on&&canHinge(it))hingePos(it).forEach(([x,y])=>{body+=`<circle cx="${x}" cy="${y}" r="17.5" fill="rgba(160,97,43,.16)" stroke="#A0612B" stroke-width="1.5" stroke-dasharray="4 3" vector-effect="non-scaling-stroke"/><circle cx="${x}" cy="${y}" r="2.2" fill="#A0612B"/>`});
+  if(o.marks&&it.handle)holePos(it).forEach(([x,y])=>{body+=`<circle cx="${x}" cy="${y}" r="${Math.max(3.5,k*.009)}" fill="#2B2F33" stroke="#fff" stroke-width="1" vector-effect="non-scaling-stroke"/>`});
+  return`<g>${defs?`<defs>${defs}</defs>`:''}${body}</g>`;
+}
+function facadeSVG(L,it,o={}){
+  const W=Math.max(1,+it.w||0),H=Math.max(1,+it.h||0),M=Math.max(W,H),fs=M*.042;
+  const pl=o.dims?fs*3.4:M*.05,pb=o.dims?fs*3.4:M*.06,pt=o.dims?fs*1.2:M*.05,pr=pt;
+  let dim='',sh='';
+  if(o.dims){
+    const c='#6B7075',y=H+fs*1.5,x=-fs*1.5,t=fs*.4,sw=M*.0026;
+    dim=`<g stroke="${c}" stroke-width="${sw}" fill="none"><path d="M0 ${H+fs*.35}V${y+t}M${W} ${H+fs*.35}V${y+t}M0 ${y}H${W}M${-fs*.35} 0H${x-t}M${-fs*.35} ${H}H${x-t}M${x} 0V${H}"/><path stroke-width="${sw*1.8}" d="M${-t*.6} ${y+t*.6}L${t*.6} ${y-t*.6}M${W-t*.6} ${y+t*.6}L${W+t*.6} ${y-t*.6}M${x-t*.6} ${t*.6}L${x+t*.6} ${-t*.6}M${x-t*.6} ${H+t*.6}L${x+t*.6} ${H-t*.6}"/></g><g fill="${c}" font-family="Inter,system-ui,sans-serif" font-size="${fs}" font-weight="600" text-anchor="middle"><text x="${W/2}" y="${y+fs*1.2}">${W}</text><text transform="translate(${x-fs*.45} ${H/2}) rotate(-90)">${H}</text></g>`;
+  }
+  if(o.shadow!==false){const sid='s'+(++UID);sh=`<defs><filter id="${sid}" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="${M*.012}"/></filter></defs><rect x="${M*.008}" y="${M*.016}" width="${W}" height="${H}" fill="rgba(0,0,0,.2)" filter="url(#${sid})"/>`}
+  return`<svg viewBox="${-pl} ${-pt} ${W+pl+pr} ${H+pt+pb}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(o.label||'Превью фасада '+H+' × '+W+' мм')}">${sh}${facadeG(L,it,o)}${dim}</svg>`;
+}
+function swatchHTML(col,coat){
+  if((col.kind||'uni')==='uni'&&coat!=='veneer'){const L={fill:col.hex,kind:'uni',finish:coat==='acryl'||/глянец/i.test(col.name)?'gloss':'matte',milling:'smooth'};return L.finish==='gloss'?`<svg viewBox="0 0 100 100">${facadeG(L,{w:100,h:100})}</svg>`:`<span style="display:block;width:100%;height:100%;background:${col.hex}"></span>`}
+  const L={fill:col.hex,kind:coat==='veneer'?'veneer':col.kind,finish:'matte',milling:'smooth',grain:'v'};
+  return`<svg viewBox="0 0 160 160" preserveAspectRatio="xMidYMid slice">${facadeG(L,{w:160,h:160})}</svg>`;
+}
+
+/* ============================ Конфигуратор: шаги ============================ */
+function step1(){
+  const c=COATINGS[S.coating];
+  let h=`<h3 class="ph">Шаг 1. Покрытие</h3><p class="phs">От покрытия зависят вид, стойкость, цена и срок. Нажмите «Риски и уход», чтобы узнать ограничения технологии.</p><div class="ocards">`;
+  for(const[k,x]of Object.entries(COATINGS)){
+    const minP=Math.min(...Object.values(x.variants).map(v=>v.p)),dmin=Math.min(...Object.values(x.variants).map(v=>v.days||x.days));
+    h+=`<div class="ocard ${S.coating===k?'on':''}"><button class="ocard-main" data-act="coating" data-v="${k}" aria-pressed="${S.coating===k}"><span class="osw" style="background:${x.swatch}"></span><strong>${x.name}</strong><span class="small muted">${x.pros}</span><span class="ometa">от <b>${fmt(minP)}</b>/м² · от ${dmin} раб. дн.</span></button><button class="linkbtn" data-act="risks" data-v="${k}">Риски и уход →</button></div>`;
+  }
+  h+='</div>';
+  const vs=Object.entries(c.variants);
+  if(vs.length>1)h+=`<div class="fgroup"><div class="flabel">${c.vlabel}</div><div class="chips">${vs.map(([k,v])=>`<button class="chip ${S.variant===k?'on':''}" data-act="variant" data-v="${k}">${v.n}<small>${fmt(v.p)}/м²</small></button>`).join('')}</div></div>`;
+  if(S.coating==='veneer')h+=`<div class="fgroup"><div class="flabel">Лак</div><div class="chips"><button class="chip ${S.lacquer==='matte'?'on':''}" data-act="lacquer" data-v="matte">Матовый</button><button class="chip ${S.lacquer==='semi'?'on':''}" data-act="lacquer" data-v="semi">Полуматовый</button></div></div>`;
+  if(S.coating==='enamel'){
+    const pOk=S.milling==='classic';
+    h+=`<div class="fgroup"><div class="flabel">Опции эмали</div>
+    <label class="check"><input type="checkbox" data-opt="metallic" ${S.opts.metallic?'checked':''}><span>Металлик <small class="muted">· × 1,20 · +2 дня</small></span></label>
+    <label class="check ${pOk?'':'dis'}"><input type="checkbox" data-opt="patina" ${S.opts.patina&&pOk?'checked':''} ${pOk?'':'disabled'}><span>Патина <small class="muted">· × 1,15 · +2 дня · ${pOk?'для фрезеровки «Классика»':'доступна только для фрезеровки «Классика» (шаг 2)'}</small></span></label>
+    <label class="check"><input type="checkbox" data-opt="double" ${S.opts.double?'checked':''}><span>Двусторонняя покраска в цвет <small class="muted">· × 1,40</small></span></label></div>`;
+  }
+  return h;
+}
+function millReason(k){const c=S.coating;if(c==='hpl')return'Пластик HPL не фрезеруется — только гладкие фасады';if(c==='acryl')return'Акрил выпускается только гладким';if(c==='veneer')return k==='handle'?'Профиль-ручку нельзя качественно облицевать шпоном':'Мелкий рисунок фрезеровки повреждает шпон';return''}
+function step2(){
+  const c=COATINGS[S.coating];
+  let h=`<h3 class="ph">Шаг 2. Фрезеровка</h3><p class="phs">Форма фасада. Превью показано в выбранном цвете. Недоступные для покрытия «${c.name}» варианты отключены.</p><div class="mgrid">`;
+  for(const[k,m]of Object.entries(MILLINGS)){
+    const ok=c.millings.includes(k);
+    h+=`<button class="mcard ${S.milling===k?'on':''}" data-act="milling" data-v="${k}" ${ok?'':'disabled'} aria-pressed="${S.milling===k}"><span class="mpv">${facadeSVG(lookFor(null,k),{w:400,h:620},{shadow:false,labels:false})}</span><strong>${m.n}</strong><span class="small muted">${ok?m.d:millReason(k)}</span><span class="ometa">${fk(m.k)}${m.min?` · от ${m.min}×${m.min} мм`:''}</span></button>`;
+  }
+  h+='</div>';
+  if(S.milling==='handle')h+=`<div class="fgroup"><div class="flabel">Сторона профиля-ручки</div><div class="chips"><button class="chip ${S.handleEdge==='top'?'on':''}" data-act="hedge" data-v="top">По верхнему краю</button><button class="chip ${S.handleEdge==='side'?'on':''}" data-act="hedge" data-v="side">По боковому краю (напротив петель)</button></div><p class="small muted mt">Профиль выполняется только по одной стороне. Размер фасада по стороне ручки — от 200 мм.</p></div>`;
+  if(S.milling==='vitrine')h+=`<div class="note info">Витрина изготавливается с проёмом под стекло. Стекло не поставляется.</div>`;
+  h+=`<p class="small muted mt">Совет: чтобы сделать витрину только для части дверей, оставьте основную фрезеровку и выберите тип «Витрина» у нужной позиции на шаге 4.</p>`;
+  return h;
+}
+function ralGrid(){
+  const q=ralQuery.trim().toLowerCase();
+  const list=q?RAL.filter(r=>r[0].includes(q.replace(/\D/g,'')||'@@')||r[1].toLowerCase().includes(q)):RAL.slice(0,24);
+  if(!list.length)return'<p class="small muted">Цвет не найден. Попробуйте другой код RAL или выберите NCS.</p>';
+  return list.map(r=>`<button class="sw ${S.color.id==='RAL'+r[0]?'on':''}" data-act="ral" data-v="${r[0]}" title="RAL ${r[0]} ${esc(r[1])}"><span class="swi" style="background:${r[2]}"></span><b>RAL ${r[0]}</b><small>${esc(r[1])}</small></button>`).join('');
+}
+function step3(){
+  let h=`<h3 class="ph">Шаг 3. Цвет и декор</h3>`;
+  if(S.coating==='enamel'){
+    const isN=S.color.sys==='NCS';
+    h+=`<p class="phs">Эмаль — любой цвет палитры RAL Classic. Цвет по NCS — с надбавкой × 1,10.</p><div class="chips"><button class="chip ${!isN?'on':''}" data-act="sys" data-v="RAL">RAL Classic</button><button class="chip ${isN?'on':''}" data-act="sys" data-v="NCS">NCS<small>× 1,10</small></button></div>`;
+    if(!isN)h+=`<div class="fgroup"><label class="fld"><span>Поиск по коду или названию (${RAL.length} цветов; на первом экране — 24 популярных)</span><input class="inp" id="ralQ" data-ral-search value="${esc(ralQuery)}" placeholder="Например, 7016 или графит" autocomplete="off"></label></div><div class="swgrid" id="ralGrid">${ralGrid()}</div>`;
+    else h+=`<div class="fgrid2 mt"><label class="fld"><span>Код NCS</span><input class="inp" data-ncs-code value="${esc(S.ncsCode)}" placeholder="S 1502-Y"></label><label class="fld"><span>Близкий оттенок для превью</span><input type="color" data-ncs-hex value="${esc(S.ncsHex)}"></label></div><p class="small muted mt">Колеровка выполняется точно по коду NCS. Оттенок на экране — только для наглядности.</p>`;
+  }else if(S.coating==='veneer'){
+    h+=`<p class="phs">Порода: <b>${variantObj().n}</b> (меняется на шаге 1). Выберите тонировку.</p><div class="swgrid">${VENEER_TONES.map(([k,n])=>{const col=veneerColor(S.variant,k);return`<button class="sw ${S.tone===k?'on':''}" data-act="tone" data-v="${k}"><span class="swi">${swatchHTML(col,'veneer')}</span><b>${n}</b></button>`}).join('')}</div>`;
+  }else{
+    const list=decorList();
+    h+=`<p class="phs">${COATINGS[S.coating].name}${S.coating==='pvc'?' — '+variantObj().n.toLowerCase():''}: каталог декоров. Вид плёнки меняется на шаге 1.</p><div class="swgrid">${list.map(d=>`<button class="sw ${S.color.id===d.id?'on':''}" data-act="decor" data-v="${d.id}"><span class="swi">${swatchHTML(d,S.coating)}</span><b>${esc(d.name)}</b><small>${{uni:'однотонный',wood:'древесный',texture:'текстурированный',linen:'текстурированный',metal:'металлик'}[d.kind]}</small></button>`).join('')}</div>`;
+  }
+  const paid=['enamel','veneer'].includes(S.coating);
+  h+=`<div class="note warn mt2">Цвет на экране может отличаться от реального. Закажите образец, чтобы увидеть точный оттенок и фактуру.</div>
+  <div class="actions" style="margin-top:6px"><button class="btn btn-ghost" data-act="sample">+ Заказать образец этого цвета</button><span class="small muted" style="align-self:center">${paid?'3 000 ₸, вернём скидкой на заказ в течение 60 дней':'Бесплатно, до 5 образцов декоров'}</span></div>`;
+  return h;
+}
+function itemCard(it,i){
+  const c=COATINGS[S.coating],ch=canHinge(it),grainOn=S.coating==='veneer'||S.color.kind==='wood',noHandle=it.type==='blind';
+  const n=(f,lab,v,ex='')=>`<label class="fld"><span>${lab}</span><input type="number" inputmode="numeric" min="0" step="1" data-i="${i}" data-f="${f}" value="${v===''?'':esc(v)}" ${ex}></label>`;
+  const sel=(f,lab,opts,v)=>`<label class="fld"><span>${lab}</span><select data-i="${i}" data-f="${f}">${opts.map(([k,t])=>`<option value="${k}" ${String(v)===String(k)?'selected':''}>${t}</option>`).join('')}</select></label>`;
+  let hing='';
+  if(!ch)hing=`<p class="small muted" style="margin:0 0 6px">Для ящиков и заглушек присадка под петли не выполняется.</p>`;
+  else if(it.hinges.on)hing=`<div class="fgrid">${sel('hinges.side','Сторона петель',Object.entries(SIDES),it.hinges.side)}${n('hinges.count','Петель, шт',it.hinges.count,'max="6" min="1"')}${n('hinges.offset','Отступ крайних, мм',it.hinges.offset)}</div><p class="small muted" style="margin:8px 0 0">Чашка Ø35 мм, центр в 22 мм от края.${it.hinges.auto?' Количество подобрано по размеру фасада — можно изменить.':''}</p>`;
+  let hand='';
+  if(noHandle)hand=`<p class="small muted" style="margin:0">Заглушка — без отверстий под ручки.</p>`;
+  else hand=`<div class="fgrid" style="margin-top:0">${sel('handle.mode','Ручка',[['none','Без отверстий'],['knob','1 отверстие (кнопка)'],['bar','2 отверстия (скоба)']],it.handle.mode)}${it.handle.mode==='bar'?sel('handle.cc','Межосевое',CC.map(x=>[x,x+' мм']),it.handle.cc):''}${it.handle.mode!=='none'?sel('handle.pos','Положение',it.type==='drawer'?[['top','У верхнего края'],['center','По центру']]:[['top','Вверху (нижние шкафы)'],['center','По центру'],['bottom','Внизу (верхние шкафы)']],it.handle.pos):''}</div>`;
+  return`<div class="item ${S.sel===i?'sel':''}" data-item="${i}">
+  <div class="item-h"><button class="item-n" data-act="sel" data-v="${i}">Позиция ${i+1}</button><span class="item-sum" id="isum${i}"></span><span class="item-tools"><button class="iconb" data-act="dup" data-v="${i}" title="Копировать строку" aria-label="Копировать позицию ${i+1}">⧉</button><button class="iconb" data-act="del" data-v="${i}" title="Удалить" aria-label="Удалить позицию ${i+1}" ${S.items.length<2?'disabled':''}>✕</button></span></div>
+  <div class="fgrid">${n('h','Высота, мм',it.h)}${n('w','Ширина, мм',it.w)}${sel('t','Толщина',c.th.map(t=>[t,t+' мм']),it.t)}${n('qty','Кол-во, шт',it.qty,'min="1"')}${sel('type','Тип',Object.entries(TYPES),it.type)}${grainOn?sel('grain','Направление текстуры',[['v','Вертикально'],['h','Горизонтально']],it.grain):''}</div>
+  <label class="check"><input type="checkbox" data-i="${i}" data-f="stove" ${it.stove?'checked':''}><span>Позиция рядом с плитой или духовкой</span></label>
+  <div class="sub"><label class="check ${ch?'':'dis'}"><input type="checkbox" data-i="${i}" data-f="hinges.on" ${it.hinges.on&&ch?'checked':''} ${ch?'':'disabled'}><span><b>Присадка под петли</b> <small class="muted">· ${CFG.hingePrice} ₸ за отверстие</small></span></label>${hing}</div>
+  <div class="sub"><p class="flabel" style="margin:10px 0 8px">Отверстия под ручки <small class="muted" style="font-weight:400">· ручки приобретаете сами · ${CFG.holePrice} ₸ за отверстие</small></p>${hand}</div>
+  <div class="ierr" id="ierr${i}"></div></div>`;
+}
+function step4(){
+  const c=COATINGS[S.coating];
+  return`<h3 class="ph">Шаг 4. Размеры, количество, присадка</h3><p class="phs">Размеры — в миллиметрах. Для «${c.name}»: ${c.min[0]}×${c.min[1]} … ${c.max[0]}×${c.max[1]} мм, толщина ${c.th.join(' / ')} мм. Фасады меньше 0,1 м² считаются как 0,1 м².</p>
+  <div class="toolbar"><button class="btn btn-dark btn-sm" data-act="add">+ Добавить позицию</button><label class="btn btn-ghost btn-sm" style="cursor:pointer">Загрузить CSV<input type="file" accept=".csv,text/csv" data-csv hidden></label><button class="btn btn-ghost btn-sm" data-act="tpl">Шаблон спецификации</button>
+  <label class="small muted" style="display:flex;align-items:center;gap:6px;margin-left:auto">Толщина для всех <select data-mass style="min-height:38px;border:1px solid var(--border);border-radius:8px;padding:0 8px;font:inherit"><option value="">—</option>${c.th.map(t=>`<option value="${t}">${t} мм</option>`).join('')}</select></label><button class="btn btn-ghost btn-sm" data-act="massHinges">Петли всем дверям</button></div>
+  <div class="items">${S.items.map(itemCard).join('')}</div>`;
+}
+function breakdownRows(r,payDisc=0){
+  return`<tr><td>Фасады: ${fnum(r.area)} м², ${r.count} шт.</td><td>${fmt(r.sum)}</td></tr>
+  ${r.disc?`<tr class="minus"><td>Скидка за объём ${Math.round(r.discRate*100)}%</td><td>${fmt(-r.disc)}</td></tr>`:''}
+  ${r.urgent?`<tr><td>Срочное изготовление +30%</td><td>${fmt(r.urgent)}</td></tr>`:''}
+  ${r.pack?`<tr><td>Жёсткая упаковка (${fnum(r.area)} м² × 1 500 ₸)</td><td>${fmt(r.pack)}</td></tr>`:''}
+  <tr><td>${r.zone?`Доставка: ${esc(r.city.name)}, ${ZONES[r.zone].n.toLowerCase()} · ${fnum(r.weight,0)} кг · ${r.tr[0]===r.tr[1]?r.tr[0]:r.tr[0]+'–'+r.tr[1]} дн. в пути`:'Самовывоз со склада в Павлодаре'}</td><td>${r.deliv?fmt(r.deliv):'бесплатно'}</td></tr>
+  ${payDisc?`<tr class="minus"><td>Скидка 2% за 100% предоплату</td><td>${fmt(-payDisc)}</td></tr>`:''}
+  <tr class="tot"><td>Итого</td><td>${fmt(r.total-payDisc)}</td></tr>
+  <tr class="vat"><td>в т. ч. НДС ${CFG.vat}%</td><td>${fmt((r.total-payDisc)*CFG.vat/(100+CFG.vat))}</td></tr>`;
+}
+function step5(){
+  const r=calc(),W=warnings(),E=allErrors(),bad=E.some(x=>x.length);
+  let h=`<h3 class="ph">Шаг 5. Проверка и корректировка</h3><p class="phs">${esc(coatLabel())} · ${MILLINGS[S.milling].n} · <span class="dot" style="background:${S.color.hex}"></span>${esc(S.color.name)}${optsLabel()?' · '+optsLabel():''} <button class="linkbtn" data-act="go" data-v="1">изменить</button></p><div class="spec">`;
+  S.items.forEach((it,i)=>{const l=r.lines[i];h+=`<div class="srow ${E[i].length?'bad':''}"><div class="spv">${facadeSVG(lookFor(it),it,{marks:true,shadow:false,labels:false})}</div><div><b>${i+1}. ${TYPES[it.type]} ${esc(it.h)} × ${esc(it.w)} × ${esc(it.t)} мм</b><div class="small muted">${hingeText(it)} · ${handleText(it)}${it.stove?' · у плиты':''}</div><div class="small muted">${fnum(l.a)} м² × ${l.q} шт.</div>${E[i].length?`<div class="small" style="color:var(--err)">${E[i].map(esc).join(' ')}</div>`:''}</div><div class="sp">${fmt(l.total)}<br><button class="iconb" data-act="edit" data-v="${i}" aria-label="Редактировать позицию ${i+1}" title="Редактировать">✎</button></div></div>`});
+  h+=`</div>`;
+  if(W.length)h+=`<div class="note warn"><b>Обратите внимание на риски</b><ul>${W.map(w=>`<li>${w.txt}${w.items.length?` <small>(поз. ${w.items.join(', ')})</small>`:''}</li>`).join('')}</ul></div>`;
+  h+=`<div class="fgrid2 mt2"><label class="fld"><span>Получение</span><select data-city>${cityOptions(S.city)}</select></label>${CFG.urgentAvailable?`<label class="check" style="align-self:end"><input type="checkbox" data-urgent ${S.urgent?'checked':''}><span>Срочное изготовление <small class="muted">· +30% к стоимости, срок −40%</small></span></label>`:''}</div>
+  <table class="bd">${breakdownRows(r)}</table>
+  <div class="note info">Изготовление: <b>${r.days} раб. дн.</b>, готовность ориентировочно <b>${fdate(r.ready)}</b>${r.zone?`, доставка ${r.tr[0]}–${r.tr[1]} дн.`:''}. Срок фиксируется после поступления предоплаты. Цена окончательная, включает НДС и фиксируется на ${CFG.priceFixDays} рабочих дня до предоплаты.</div>
+  ${bad?`<div class="note err">Есть ошибки в размерах — исправьте отмеченные позиции.</div>`:''}
+  ${!r.minOk?`<div class="note warn">Минимальная сумма заказа — ${fmt(CFG.minOrder)} (без доставки). Сейчас: ${fmt(r.goods)}.</div>`:''}
+  <div class="actions"><button class="btn btn-cta" data-act="checkout" ${bad||!r.minOk?'disabled':''}>Оформить заказ</button><button class="btn btn-ghost" data-act="save">Сохранить проект</button><button class="btn btn-ghost" data-act="pdf">Скачать PDF</button><button class="btn btn-ghost" data-act="sample">Заказать образец цвета</button></div>`;
+  return h;
+}
+function navHTML(){return`<div class="stepnav">${S.step>1?`<button class="btn btn-ghost" data-act="prev">← Назад</button>`:'<span></span>'}${S.step<5?`<button class="btn btn-dark" data-act="next">Далее: ${STEPS[S.step]} →</button>`:''}</div>`}
+function renderStepper(){$('#stepper').innerHTML=STEPS.map((t,i)=>`<button class="st ${S.step===i+1?'on':''} ${i+1<S.step?'done':''}" data-act="go" data-v="${i+1}" role="tab" aria-selected="${S.step===i+1}"><span>${i+1<S.step?'✓':i+1}</span>${t}</button>`).join('')}
+function renderStep(){renderStepper();$('#cfgPanel').innerHTML=[step1,step2,step3,step4,step5][S.step-1]()+navHTML();if(S.step===4)refreshItems()}
+function renderPreview(){
+  if(S.sel>=S.items.length)S.sel=0;
+  const it=S.items[S.sel];
+  $('#pvTabs').innerHTML=S.items.length>1?S.items.map((x,i)=>`<button class="pvt ${i===S.sel?'on':''}" data-act="sel" data-v="${i}">${i+1}. ${TYPES[x.type]} ${esc(x.h)}×${esc(x.w)}</button>`).join(''):`<span class="small muted">${TYPES[it.type]} ${esc(it.h)} × ${esc(it.w)} мм</span>`;
+  $('#pv').innerHTML=facadeSVG(lookFor(it),it,{dims:true,marks:true});
+}
+function renderPrice(){
+  const r=calc(),errs=allErrors().reduce((a,x)=>a+x.length,0),blocked=errs||!r.minOk;
+  $('#priceCard').innerHTML=`<span class="small muted">Итого${r.zone?' с доставкой':''}, окончательная цена</span><div class="pc-total">${fmt(r.total)}</div><div class="small muted">в т. ч. НДС ${CFG.vat}% — ${fmt(r.vat)}</div>
+  <dl class="pc-dl"><div><dt>Покрытие</dt><dd>${esc(coatLabel())}</dd></div><div><dt>Фрезеровка</dt><dd>${MILLINGS[S.milling].n}</dd></div><div><dt>Цвет</dt><dd><span class="dot" style="background:${S.color.hex}"></span>${esc(S.color.name)}</dd></div><div><dt>Объём</dt><dd>${fnum(r.area)} м² · ${r.count} шт.</dd></div>${r.disc?`<div><dt>Скидка за объём</dt><dd style="color:var(--sage-t)">${Math.round(r.discRate*100)}% · ${fmt(-r.disc)}</dd></div>`:''}<div><dt>Готовность</dt><dd>${r.days} раб. дн. · ${fdate(r.ready)}</dd></div><div><dt>Получение</dt><dd>${esc(r.city.name.replace(' — склад в Павлодаре',''))}</dd></div></dl>
+  ${errs?`<div class="note err">Ошибок в размерах: ${errs}. Исправьте на шаге 4.</div>`:''}
+  ${!r.minOk?`<div class="note warn">Минимальная сумма заказа — ${fmt(CFG.minOrder)}. Сейчас: ${fmt(r.goods)}.</div>`:''}
+  <div class="pc-btns">${S.step<5?`<button class="btn btn-cta" data-act="next">Далее: ${STEPS[S.step]}</button>`:`<button class="btn btn-cta" data-act="checkout" ${blocked?'disabled':''}>Оформить заказ</button>`}<button class="btn btn-ghost" data-act="save">Сохранить проект</button></div>`;
+  $('#mbT').textContent=fmt(r.total);
+  $('#mbD').textContent=`${fnum(r.area)} м² · готовность ${fdate(r.ready)}`;
+  $('#mbB').textContent=S.step<5?'Далее →':'Оформить';
+  $('#mbB').disabled=S.step===5&&blocked;
+}
+function refreshItems(){
+  const r=calc(),E=allErrors();
+  S.items.forEach((it,i)=>{
+    const s=$('#isum'+i),e=$('#ierr'+i),card=$(`[data-item="${i}"]`);if(!s)return;
+    const l=r.lines[i];s.textContent=`${fnum(l.a*l.q)} м² · ${fmt(l.total)}`;
+    const iw=itemWarn(it);
+    e.innerHTML=(E[i].length?`<div class="note err">${E[i].map(esc).join('<br>')}</div>`:'')+(iw.length?`<div class="note warn">${iw.map(x=>x[1]).join('<br>')}</div>`:'');
+    card.classList.toggle('bad',E[i].length>0);
+  });
+}
+let rafId=0;
+function refresh(){cancelAnimationFrame(rafId);rafId=requestAnimationFrame(()=>{renderPreview();renderPrice();if(S.step===4)refreshItems();save()})}
+function full(){renderStep();refresh()}
+function setStep(n){
+  S.step=Math.max(1,Math.min(5,n));full();
+  const top=$('#configurator .cfg-main').getBoundingClientRect().top;
+  if(top<0||top>window.innerHeight*.6)$('#configurator .cfg-main').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function setCoating(k){
+  const c=COATINGS[k];S.coating=k;S.variant=Object.keys(c.variants)[0];
+  if(!c.millings.includes(S.milling)){S.milling='smooth';toast(`Фрезеровка изменена на «Гладкий»: для покрытия «${c.name}» выбранная недоступна.`)}
+  S.opts={metallic:false,patina:false,double:false};
+  S.color=defaultColor();
+  S.items.forEach(it=>{if(!c.th.includes(+it.t))it.t=c.th.includes(19)?19:c.th[0]});
+  full();
+}
+function setField(i,f,val){
+  const it=S.items[i];if(!it)return;
+  const nums=['h','w','t','qty','hinges.count','hinges.offset','handle.cc'];
+  const v=nums.includes(f)?(val===''?'':Math.round(+val)):val;
+  const[a,b]=f.split('.');if(b)it[a][b]=v;else it[a]=v;
+  if(f==='hinges.count')it.hinges.auto=false;
+  if(['h','w','hinges.side','hinges.on'].includes(f)&&it.hinges.auto){
+    const len=['left','right'].includes(it.hinges.side)?+it.h:+it.w;
+    if(len){it.hinges.count=hingeAuto(len);const inp=$(`[data-i="${i}"][data-f="hinges.count"]`);if(inp)inp.value=it.hinges.count}
+  }
+  if(f==='type'&&!canHinge(it))it.hinges.on=false;
+  S.sel=i;
+}
+function rerenderItem(i){const el=$(`[data-item="${i}"]`);if(el){el.outerHTML=itemCard(S.items[i],i);refreshItems()}}
+
+/* ============================ Действия ============================ */
+function act(a,v){
+  switch(a){
+    case'go':setStep(+v);break;
+    case'next':setStep(S.step+1);break;
+    case'prev':setStep(S.step-1);break;
+    case'coating':setCoating(v);break;
+    case'variant':S.variant=v;if(S.coating==='pvc'&&!decorList().some(d=>d.id===S.color.id))S.color=decorList()[0];if(S.coating==='veneer')S.color=veneerColor(v,S.tone);full();break;
+    case'lacquer':S.lacquer=v;full();break;
+    case'milling':S.milling=v;if(v!=='classic')S.opts.patina=false;full();break;
+    case'hedge':S.handleEdge=v;full();break;
+    case'risks':openRisks(v);break;
+    case'sys':S.color=v==='NCS'?{id:'NCS',sys:'NCS',name:'NCS '+(S.ncsCode||'—'),hex:S.ncsHex,kind:'uni'}:colorRAL(S.lastRal||'9003');full();break;
+    case'ral':S.color=colorRAL(v);S.lastRal=v;full();break;
+    case'decor':S.color=decorList().find(d=>d.id===v)||S.color;full();break;
+    case'tone':S.tone=v;S.color=veneerColor(S.variant,v);full();break;
+    case'sample':addSample();break;
+    case'add':{const last=S.items[S.items.length-1];const n=newItem({t:last?last.t:19});n.hinges.on=!!(last&&last.hinges.on);S.items.push(n);S.sel=S.items.length-1;full();setTimeout(()=>{const el=$(`[data-item="${S.sel}"] input`);if(el){el.focus();el.select()}},30);break}
+    case'dup':{const src=clone(S.items[+v]);src.id=uid();S.items.splice(+v+1,0,src);S.sel=+v+1;full();toast('Позиция скопирована');break}
+    case'del':if(S.items.length>1){S.items.splice(+v,1);S.sel=Math.min(S.sel,S.items.length-1);full()}break;
+    case'sel':S.sel=+v;$$('.item').forEach(x=>x.classList.toggle('sel',+x.dataset.item===S.sel));renderPreview();save();break;
+    case'edit':S.sel=+v;setStep(4);setTimeout(()=>{const el=$(`[data-item="${v}"]`);if(el)el.scrollIntoView({behavior:'smooth',block:'center'})},60);break;
+    case'tpl':downloadTemplate();break;
+    case'massHinges':S.items.forEach(it=>{if(canHinge(it)){it.hinges.on=true;if(it.hinges.auto)it.hinges.count=hingeAuto(['left','right'].includes(it.hinges.side)?+it.h:+it.w)}});full();toast('Присадка под петли включена для всех дверей');break;
+    case'save':saveProject();break;
+    case'pdf':printSpec();break;
+    case'checkout':openCheckout();break;
+  }
+}
+const cfgSec=$('#configurator');
+cfgSec.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b||b.disabled)return;e.preventDefault();act(b.dataset.act,b.dataset.v)});
+cfgSec.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.matches('[data-ral-search]')){ralQuery=t.value;$('#ralGrid').innerHTML=ralGrid();return}
+  if(t.matches('[data-ncs-code]')){S.ncsCode=t.value.trim();S.color=Object.assign({},S.color,{name:'NCS '+(S.ncsCode||'—')});refresh();return}
+  if(t.matches('[data-ncs-hex]')){S.ncsHex=t.value;S.color=Object.assign({},S.color,{hex:t.value});refresh();return}
+  if(t.dataset.f&&t.tagName==='INPUT'&&t.type!=='checkbox'){setField(+t.dataset.i,t.dataset.f,t.value);refresh()}
+});
+cfgSec.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.dataset.opt){S.opts[t.dataset.opt]=t.checked;full();return}
+  if(t.matches('[data-city]')){S.city=t.value;full();return}
+  if(t.matches('[data-urgent]')){S.urgent=t.checked;full();return}
+  if(t.matches('[data-mass]')){if(t.value){S.items.forEach(it=>it.t=+t.value);full();toast(`Толщина ${t.value} мм применена ко всем позициям`)}return}
+  if(t.matches('[data-csv]')){importCSV(t.files[0]);t.value='';return}
+  if(t.dataset.f){
+    const i=+t.dataset.i,f=t.dataset.f;setField(i,f,t.type==='checkbox'?t.checked:t.value);
+    if(['type','hinges.on','handle.mode','hinges.side'].includes(f))rerenderItem(i);
+    refresh();
+  }
+});
+cfgSec.addEventListener('focusin',e=>{const card=e.target.closest('[data-item]');if(card&&+card.dataset.item!==S.sel){S.sel=+card.dataset.item;$$('.item').forEach(x=>x.classList.toggle('sel',x===card));renderPreview()}});
+$('#mbB').addEventListener('click',()=>{if(S.step<5)setStep(S.step+1);else openCheckout()});
+
+/* ============================ CSV / проект / печать ============================ */
+function downloadBlob(name,content,type){const b=new Blob([content],{type});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.append(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+function downloadTemplate(){downloadBlob('specifikaciya-shablon.csv','﻿Высота;Ширина;Толщина;Количество;Тип;Петли\n716;396;19;4;дверь;слева\n716;596;19;1;дверь;справа\n356;596;19;2;ящик;\n716;296;19;1;заглушка;\n','text/csv;charset=utf-8');toast('Шаблон скачан. Заполните его в Excel и сохраните как CSV (разделитель «;»).')}
+async function importCSV(file){
+  if(!file)return;
+  const text=(await file.text()).replace(/^﻿/,'');
+  const lines=text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);if(!lines.length){toast('Файл пустой','err');return}
+  const delim=(lines[0].match(/;/g)||[]).length>=(lines[0].match(/,/g)||[]).length?';':',';
+  const sm={'слева':'left','справа':'right','сверху':'top','снизу':'bottom',left:'left',right:'right',top:'top',bottom:'bottom'};
+  const c=COATINGS[S.coating],added=[];let skipped=0;
+  lines.forEach((l,idx)=>{
+    const p=l.split(delim).map(s=>s.trim().replace(/^"|"$/g,''));const h=parseInt(p[0]),w=parseInt(p[1]);
+    if(!h||!w){if(idx>0)skipped++;return}
+    const it=newItem({h,w});const t=parseInt(p[2]);it.t=c.th.includes(t)?t:(c.th.includes(19)?19:c.th[0]);
+    const q=parseInt(p[3]);it.qty=q>0?q:1;
+    const ty=(p[4]||'').toLowerCase();it.type=/^(ящ|drawer)/.test(ty)?'drawer':/^(заг|blind)/.test(ty)?'blind':/^(вит|vitrine)/.test(ty)?'vitrine':'door';
+    const hs=sm[(p[5]||'').toLowerCase()];
+    if(hs&&canHinge(it)){it.hinges.on=true;it.hinges.side=hs;it.hinges.count=hingeAuto(['left','right'].includes(hs)?h:w)}
+    added.push(it);
+  });
+  if(!added.length){toast('В файле не найдено строк с размерами. Проверьте формат по шаблону.','err');return}
+  S.items.push(...added);S.sel=S.items.length-added.length;full();
+  toast(`Загружено позиций: ${added.length}${skipped?`, пропущено строк: ${skipped}`:''}`,'ok');
+}
+function projectLink(){const data={...S,step:5};return location.href.split('#')[0]+'#p='+btoa(unescape(encodeURIComponent(JSON.stringify(data))))}
+function saveProject(){
+  save();const url=projectLink();
+  if(USER){const P=store.get('fl_projects',[]);P.unshift({phone:USER.phone,date:new Date().toISOString(),title:`${coatLabel()}, ${S.color.name} — ${fnum(calc().area)} м²`,url});store.set('fl_projects',P.slice(0,20))}
+  const m=openModal(`<h3>Проект сохранён</h3><p class="muted">Проект хранится в этом браузере и доступен по ссылке — отправьте её себе или мастеру.${USER?' Проект также привязан к вашему аккаунту.':' После входа по телефону проект привяжется к аккаунту.'}</p><label class="fld"><span>Ссылка на проект</span><input class="inp" id="plink" readonly value="${esc(url)}"></label><div class="actions"><button class="btn btn-cta" id="pcopy">Скопировать ссылку</button></div>`);
+  const inp=$('#plink',m);inp.addEventListener('focus',()=>inp.select());
+  $('#pcopy',m).addEventListener('click',()=>{inp.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}if(navigator.clipboard)navigator.clipboard.writeText(url).then(()=>toast('Ссылка скопирована','ok'),()=>{if(!ok)toast('Скопируйте ссылку вручную')});else toast(ok?'Ссылка скопирована':'Скопируйте ссылку вручную',ok?'ok':'')});
+}
+const printCSS='body{font:13px/1.45 Inter,Arial,sans-serif;color:#1F2328;margin:28px}h1{font:700 22px Manrope,Arial,sans-serif;margin:0 0 4px}h2{font:700 15px Arial;margin:18px 0 6px}table{border-collapse:collapse;width:100%;margin:10px 0}td,th{border:1px solid #DDD6CB;padding:6px 8px;text-align:left;vertical-align:middle}th{background:#F7F4EF}.pv svg{width:64px;height:84px;display:block}.r,td:last-child{text-align:right}.muted{color:#6B7075}.bd td{border:0;border-bottom:1px solid #eee}.bd tr.tot td{font-weight:800;font-size:16px}.note{background:#FFF4DE;color:#8A5A00;padding:8px 10px;border-radius:6px}.minus td:last-child{color:#3F5A3E}button{margin-top:16px;padding:10px 16px;font:600 14px Arial;background:#A0612B;color:#fff;border:0;border-radius:8px;cursor:pointer}@media print{button{display:none}}';
+function specHTML(title,extra=''){
+  const r=calc(),W=warnings();
+  return`<h1>${esc(title)}</h1><p class="muted">${BRAND} · ${fdate(new Date(),{day:'numeric',month:'long',year:'numeric'})} · г. Павлодар</p>
+  <p><b>Покрытие:</b> ${esc(coatLabel())} · <b>Фрезеровка:</b> ${MILLINGS[S.milling].n} · <b>Цвет:</b> ${esc(S.color.name)}${optsLabel()?' · <b>Опции:</b> '+optsLabel():''}</p>
+  <table><tr><th>№</th><th>Превью</th><th>Позиция</th><th>Присадка и ручки</th><th>Кол-во</th><th>Сумма</th></tr>${S.items.map((it,i)=>`<tr><td>${i+1}</td><td class="pv">${facadeSVG(lookFor(it),it,{marks:true,shadow:false,labels:false})}</td><td>${TYPES[it.type]} ${esc(it.h)} × ${esc(it.w)} × ${esc(it.t)} мм${S.coating==='veneer'||S.color.kind==='wood'?`<br><span class="muted">текстура ${it.grain==='h'?'горизонтально':'вертикально'}</span>`:''}${it.stove?'<br><span class="muted">у плиты</span>':''}</td><td>${hingeText(it)}<br>${handleText(it)}</td><td>${esc(it.qty)}</td><td>${fmt(r.lines[i].total)}</td></tr>`).join('')}</table>
+  <table class="bd">${breakdownRows(r,extra&&extra.payDisc||0)}</table>
+  <p>Срок изготовления: ${r.days} раб. дн. (ориентировочно до ${fdate(r.ready)}).</p>
+  ${W.length?`<div class="note"><b>Предупреждения:</b><br>${W.map(w=>'• '+w.txt).join('<br>')}</div>`:''}
+  ${extra&&extra.html||''}`;
+}
+function openPrint(title,inner,file){
+  const html=`<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>${esc(title)}</title><style>${printCSS}</style></head><body>${inner}<button onclick="print()">Печать / сохранить в PDF</button></body></html>`;
+  const w=window.open('','_blank');
+  if(w){w.document.open();w.document.write(html);w.document.close();setTimeout(()=>{try{w.focus();w.print()}catch(e){}},500)}
+  else{downloadBlob(file||'dokument.html',html,'text/html;charset=utf-8');toast('Документ скачан — откройте его и сохраните в PDF через печать')}
+}
+function printSpec(){openPrint('Спецификация фасадов',specHTML('Спецификация мебельных фасадов'),'specifikaciya.html')}
+
+/* ============================ Модальные окна ============================ */
+function openModal(html,{cls=''}={}){
+  const m=document.createElement('div');m.className='modal '+cls;
+  m.innerHTML=`<div class="modal-box" role="dialog" aria-modal="true"><button class="modal-x" aria-label="Закрыть">×</button><div class="modal-body">${html}</div></div>`;
+  document.body.append(m);document.body.classList.add('noscroll');
+  m.addEventListener('mousedown',e=>{m._down=e.target});
+  m.addEventListener('click',e=>{if((e.target===m&&m._down===m)||e.target.closest('.modal-x'))closeModal(m)});
+  setTimeout(()=>{const f=m.querySelector('.modal-body input:not([type=hidden]):not([readonly]),.modal-body button');if(f)f.focus()},40);
+  return m;
+}
+function closeModal(m){m.remove();if(!$('.modal'))document.body.classList.remove('noscroll')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const ms=$$('.modal');if(ms.length)closeModal(ms[ms.length-1])}});
+function openRisks(k){
+  const c=COATINGS[k],minP=Math.min(...Object.values(c.variants).map(v=>v.p));
+  const m=openModal(`<h3>${c.name}: риски и уход</h3><div class="osw" style="height:70px;border-radius:10px;background:${c.swatch};margin-bottom:16px;border:1px solid var(--border)"></div>
+  <dl class="kv"><dt>Плюсы</dt><dd>${c.pros}</dd><dt>Риски</dt><dd>${c.risks}</dd><dt>Где применять</dt><dd>${c.where}</dd><dt>Уход</dt><dd>${c.care}</dd><dt>Цена</dt><dd>от ${fmt(minP)}/м²</dd><dt>Толщины</dt><dd>${c.th.join(', ')} мм</dd><dt>Размеры</dt><dd>${c.min[0]}×${c.min[1]} … ${c.max[0]}×${c.max[1]} мм</dd><dt>Фрезеровки</dt><dd>${c.millings.map(x=>MILLINGS[x].n).join(', ')}</dd></dl>
+  <p class="small muted">Перед оформлением заказа вы подтверждаете ознакомление с рисками выбранной технологии.</p><div class="actions"><button class="btn btn-cta" id="rkPick">Выбрать «${c.name}»</button></div>`);
+  $('#rkPick',m).addEventListener('click',()=>{closeModal(m);if(S.coating!==k)setCoating(k);location.hash='';$('#configurator').scrollIntoView({behavior:'smooth'})});
+}
+const DOCS={
+  offer:['Публичная оферта','Текст оферты будет согласован с юристом. Ключевые положения: изделия изготавливаются по индивидуальным размерам заказчика; цена фиксируется на 3 рабочих дня до предоплаты; срок изготовления исчисляется с момента поступления предоплаты; условия возврата изделий надлежащего качества, изготовленных по индивидуальным размерам, ограничены.'],
+  privacy:['Политика конфиденциальности','Мы обрабатываем персональные данные в соответствии с Законом РК «О персональных данных и их защите». Данные хранятся на серверах в Республике Казахстан и используются только для исполнения заказа и уведомлений о его статусе. Данные банковских карт на сайте не хранятся.'],
+  pd:['Согласие на сбор и обработку персональных данных','Оформляя заказ, вы даёте согласие на сбор и обработку имени, номера телефона, email, адреса доставки и реквизитов в целях исполнения договора, отправки уведомлений и формирования документов. Согласие можно отозвать, обратившись к нам.']
+};
+document.addEventListener('click',e=>{const d=e.target.closest('[data-doc]');if(!d)return;e.preventDefault();const[t,x]=DOCS[d.dataset.doc];openModal(`<h3>${t}</h3><p class="muted">${x}</p><p class="small muted">Учебный проект: текст-заглушка.</p>`)});
+
+/* ============================ Вход по телефону ============================ */
+function authView(box,onDone,intro=''){
+  const root=document.createElement('div');box.innerHTML='';box.append(root);
+  let phase='phone',phone=USER?prettyPhone(USER.phone):'+7 ',code='',tries=0,ch='whatsapp',left=0,tm=null;
+  const users=store.get('fl_users',{});
+  function draw(err=''){
+    if(phase==='phone')root.innerHTML=`<h3>Вход по номеру телефона</h3>${intro}<p class="muted small">Пароль не нужен — пришлём одноразовый код.</p><label class="fld"><span>Телефон</span><input class="inp" id="aPhone" type="tel" inputmode="tel" autocomplete="tel" value="${esc(phone)}" placeholder="+7 7XX XXX-XX-XX"></label><div class="chips mt"><button class="chip ${ch==='whatsapp'?'on':''}" data-ch="whatsapp">Код в WhatsApp</button><button class="chip ${ch==='sms'?'on':''}" data-ch="sms">Код по SMS</button></div>${err?`<div class="note err">${err}</div>`:''}<button class="btn btn-cta mt wfull" data-a="send">Получить код</button><p class="small muted mt">Нажимая кнопку, вы соглашаетесь с <a href="#" data-doc="privacy">политикой конфиденциальности</a>.</p>`;
+    else if(phase==='code')root.innerHTML=`<h3>Введите код</h3><p class="muted small">Отправили ${ch==='sms'?'SMS':'сообщение в WhatsApp'} на ${esc(phone)}. <button class="linkbtn" data-a="back">Изменить номер</button></p><div class="note info small">Демо-режим: ваш код — <b>${code}</b></div><label class="fld"><span>Код из сообщения</span><input class="inp otp" id="aCode" inputmode="numeric" maxlength="4" autocomplete="one-time-code"></label>${err?`<div class="note err">${err}</div>`:''}<button class="btn btn-cta mt wfull" data-a="check">Подтвердить</button><p class="small muted mt" id="aResend">${left?`Отправить код повторно через ${left} с`:'<button class="linkbtn" data-a="resend">Отправить код ещё раз</button>'}</p>`;
+    else root.innerHTML=`<h3>Как к вам обращаться?</h3><p class="muted small">Это займёт несколько секунд.</p><label class="fld"><span>Имя</span><input class="inp" id="aName" autocomplete="given-name"></label><label class="fld mt"><span>Email — необязательно, для дублирования уведомлений</span><input class="inp" id="aEmail" type="email" autocomplete="email"></label>${err?`<div class="note err">${err}</div>`:''}<button class="btn btn-cta mt wfull" data-a="finish">Продолжить</button>`;
+    const f=root.querySelector('input');if(f){if(f.id==='aPhone')bindPhoneMask(f);setTimeout(()=>f.focus(),20)}
+  }
+  function send(){code=String(Math.floor(1000+Math.random()*9000));tries=0;left=30;phase='code';draw();toast(`Демо: ${ch==='sms'?'SMS':'WhatsApp'} с кодом <b>${code}</b> отправлен на ${esc(phone)}`,'',7000);clearInterval(tm);tm=setInterval(()=>{left--;const r=root.querySelector('#aResend');if(left<=0){clearInterval(tm);left=0}if(r)r.innerHTML=left?`Отправить код повторно через ${left} с`:'<button class="linkbtn" data-a="resend">Отправить код ещё раз</button>'},1000)}
+  function finish(user){clearInterval(tm);USER=user;store.set('fl_user',USER);users[user.phone]={name:user.name,email:user.email};store.set('fl_users',users);updateHeader();onDone(USER)}
+  root.addEventListener('click',e=>{
+    const c=e.target.closest('[data-ch]');if(c){ch=c.dataset.ch;phone=root.querySelector('#aPhone').value;draw();return}
+    const b=e.target.closest('[data-a]');if(!b)return;e.preventDefault();
+    const a=b.dataset.a;
+    if(a==='send'){phone=maskPhone(root.querySelector('#aPhone').value);if(!validPhone(phone)){draw('Введите мобильный номер в формате +7 7XX XXX-XX-XX');return}send()}
+    else if(a==='resend')send();
+    else if(a==='back'){phase='phone';clearInterval(tm);draw()}
+    else if(a==='check'){
+      const v=root.querySelector('#aCode').value.trim();
+      if(v===code){const p=normPhone(phone);if(users[p]&&users[p].name)finish({phone:p,name:users[p].name,email:users[p].email||''});else{phase='name';draw()}}
+      else{tries++;if(tries>=3){phase='phone';clearInterval(tm);draw('Превышено число попыток. Запросите новый код.')}else draw(`Неверный код. Осталось попыток: ${3-tries}`)}
+    }
+    else if(a==='finish'){const n=root.querySelector('#aName').value.trim(),em=root.querySelector('#aEmail').value.trim();if(n.length<2){draw('Укажите имя');return}if(em&&!/^\S+@\S+\.\S+$/.test(em)){draw('Проверьте email');return}finish({phone:normPhone(phone),name:n,email:em})}
+  });
+  root.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'){e.preventDefault();const b=root.querySelector('[data-a=send],[data-a=check],[data-a=finish]');if(b)b.click()}});
+  draw();
+}
+
+/* ============================ Образцы ============================ */
+function updateBadge(){const b=$('#smpBadge');b.textContent=SAMPLES.length;b.hidden=!SAMPLES.length}
+function addSample(){
+  const paid=['enamel','veneer'].includes(S.coating);
+  const key=S.coating+'|'+S.color.id+(S.coating==='enamel'?'|'+S.variant:'');
+  if(SAMPLES.some(s=>s.key===key)){toast('Этот образец уже в корзине образцов');return}
+  if(!paid&&SAMPLES.filter(s=>!s.paid).length>=CFG.freeSamples){toast(`Бесплатно — до ${CFG.freeSamples} образцов декоров на заказ`,'err');return}
+  SAMPLES.push({key,coating:S.coating,coatName:coatLabel(),name:S.color.name,hex:S.color.hex,kind:S.coating==='veneer'?'veneer':S.color.kind,paid});
+  store.set('fl_samples',SAMPLES);updateBadge();
+  toast(`Образец «${esc(S.color.name)}» добавлен ${paid?'— 3 000 ₸, вернём скидкой':'— бесплатно'}. <b style="cursor:pointer;text-decoration:underline" onclick="openSamples()">Открыть корзину</b>`,'ok',5000);
+}
+function openSamples(){
+  const m=openModal('<div id="smp"></div>');const box=$('#smp',m);let recv='pickup';
+  const SDELIV={pickup:['Самовывоз в Павлодаре',0],pvl:['Курьер по Павлодару',1000],kz:['Почта / курьер по Казахстану',2500]};
+  function draw(){
+    if(!SAMPLES.length){box.innerHTML=`<h3>Корзина образцов</h3><p class="muted">Пока пусто. Выберите цвет на шаге 3 конфигуратора и нажмите «Заказать образец этого цвета».</p><div class="actions"><button class="btn btn-cta" data-a="go">Перейти к выбору цвета</button></div>`;return}
+    const free=SAMPLES.filter(s=>!s.paid).length,paidN=SAMPLES.filter(s=>s.paid).length,sum=paidN*CFG.samplePaid,dl=SDELIV[recv][1];
+    box.innerHTML=`<h3>Корзина образцов</h3>${SAMPLES.map((s,i)=>`<div class="smp-row"><span class="swi">${swatchHTML({hex:s.hex,kind:s.kind,name:s.name},s.coating)}</span><div><b>${esc(s.name)}</b><div class="small muted">${esc(s.coatName)}${s.paid?' · образец 100 × 100 мм, 3–5 раб. дн.':' · 1–2 дня'}</div></div><span class="sp">${s.paid?fmt(CFG.samplePaid):'Бесплатно'}</span><button class="iconb" data-rm="${i}" aria-label="Удалить образец">✕</button></div>`).join('')}
+    <p class="small muted mt">Бесплатных декоров: ${free} из ${CFG.freeSamples}. Стоимость окрашенных образцов и шпона вернётся скидкой на заказ фасадов в течение 60 дней.</p>
+    <label class="fld mt"><span>Получение</span><select id="smpRecv">${Object.entries(SDELIV).map(([k,[n,p]])=>`<option value="${k}" ${recv===k?'selected':''}>${n} — ${p?fmt(p)+' (учебный тариф)':'бесплатно'}</option>`).join('')}</select></label>
+    <table class="bd"><tr><td>Образцы</td><td>${sum?fmt(sum):'бесплатно'}</td></tr><tr><td>Доставка</td><td>${dl?fmt(dl):'бесплатно'}</td></tr><tr class="tot"><td>Итого</td><td>${fmt(sum+dl)}</td></tr></table>
+    <div class="actions"><button class="btn btn-cta" data-a="order">Заказать образцы</button><button class="btn btn-ghost" data-a="more">Добавить ещё</button></div>`;
+  }
+  function placeOrder(){
+    const sum=SAMPLES.filter(s=>s.paid).length*CFG.samplePaid+SDELIV[recv][1];
+    const SO=store.get('fl_sample_orders',[]);const no='О-'+String(2000+SO.length+Math.floor(Math.random()*90)).padStart(4,'0');
+    SO.unshift({no,phone:USER.phone,date:new Date().toISOString(),items:SAMPLES.map(s=>s.name),recv:SDELIV[recv][0],sum});store.set('fl_sample_orders',SO);
+    SAMPLES=[];store.set('fl_samples',SAMPLES);updateBadge();
+    box.innerHTML=`<h3>Заказ образцов оформлен</h3><div class="bigno">№ ${no}</div><p class="muted">${sum?`К оплате ${fmt(sum)} — ссылка на оплату отправлена в WhatsApp (демо).`:'Образцы бесплатные.'} Декоры будут готовы через 1–2 дня, окрашенные образцы и шпон — через 3–5 рабочих дней. Мы сообщим о готовности.</p><div class="actions"><button class="btn btn-cta" data-a="close">Готово</button></div>`;
+    toast(`WhatsApp (демо): заказ образцов № ${no} принят`,'ok');
+  }
+  box.addEventListener('click',e=>{
+    const rm=e.target.closest('[data-rm]');if(rm){SAMPLES.splice(+rm.dataset.rm,1);store.set('fl_samples',SAMPLES);updateBadge();draw();return}
+    const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;
+    if(a==='go'||a==='more'){closeModal(m);S.step=3;full();$('#configurator').scrollIntoView({behavior:'smooth'})}
+    else if(a==='close')closeModal(m);
+    else if(a==='order'){if(USER)placeOrder();else authView(box,()=>placeOrder(),'<p class="small muted">Для заказа образцов нужна простая регистрация.</p>')}
+  });
+  box.addEventListener('change',e=>{if(e.target.id==='smpRecv'){recv=e.target.value;draw()}});
+  draw();
+}
+window.openSamples=openSamples;
+
+/* ============================ Оформление заказа ============================ */
+function fakeQR(seed){let s=seed;const rnd=()=>{s=(s*9301+49297)%233280;return s/233280};let r='';const N=25;for(let y=0;y<N;y++)for(let x=0;x<N;x++){const f=(x<8&&y<8)||(x>N-9&&y<8)||(x<8&&y>N-9);if(!f&&rnd()>.52)r+=`<rect x="${x}" y="${y}" width="1" height="1"/>`}const fp=(x,y)=>`<rect x="${x}" y="${y}" width="7" height="7" fill="none" stroke="#1F2328"/><rect x="${x+2}" y="${y+2}" width="3" height="3"/>`;return`<svg class="qr" viewBox="-1 -1 ${N+2} ${N+2}" aria-label="QR-код для оплаты (демо)"><rect x="-1" y="-1" width="${N+2}" height="${N+2}" fill="#fff"/><g fill="#1F2328">${r}${fp(.5,.5)}${fp(N-7.5,.5)}${fp(.5,N-7.5)}</g></svg>`}
+function payScreen(box,amount,title,onPaid){
+  const root=document.createElement('div');box.innerHTML='';box.append(root);let method='kaspi';
+  function draw(){root.innerHTML=`<h3>${title}</h3><p class="muted">Сумма к оплате: <b style="color:var(--graphite);font-size:20px">${fmt(amount)}</b></p><div class="chips"><button class="chip ${method==='kaspi'?'on':''}" data-m="kaspi">Kaspi QR / Kaspi Pay</button><button class="chip ${method==='card'?'on':''}" data-m="card">Банковская карта</button></div>
+    ${method==='kaspi'?`<div style="text-align:center">${fakeQR(Math.round(amount)%9973)}<p class="small muted">Отсканируйте QR в приложении Kaspi.kz</p></div>`:`<div class="note info mt">Оплата картой проходит на защищённой странице платёжного провайдера. Данные карт на нашем сайте не вводятся и не хранятся.</div>`}
+    <div class="note warn small">Демо-режим: реальная оплата не выполняется.</div><button class="btn btn-cta wfull" data-pay>Имитировать успешную оплату</button>`}
+  root.addEventListener('click',e=>{const mm=e.target.closest('[data-m]');if(mm){method=mm.dataset.m;draw();return}if(e.target.closest('[data-pay]')){toast('Оплата прошла. Фискальный чек отправлен в WhatsApp/SMS (демо, ОФД)','ok',5000);onPaid(method)}});
+  draw();
+}
+function openCheckout(){
+  if(hasErrors()){toast('Исправьте ошибки в размерах перед оформлением','err');setStep(4);return}
+  let r=calc();if(!r.minOk){toast(`Минимальная сумма заказа — ${fmt(CFG.minOrder)}`,'err');return}
+  const K={step:USER?1:0,buyer:{type:'person',bin:'',org:'',addr:'',bank:''},recv:S.city==='pickup'?'pickup':'delivery',address:'',recipient:USER?USER.name:'',rphone:USER?prettyPhone(USER.phone):'+7 ',comment:'',files:[],ag:{offer:false,pd:false,risk:false,custom:false},pay:'half',customNote:''};
+  const prof=USER?store.get('fl_users',{})[USER.phone]:null;if(prof&&prof.buyer)K.buyer=Object.assign(K.buyer,prof.buyer);
+  const m=openModal('<div class="ck"><div class="ck-prog" id="ckProg"></div><div id="ckBody"></div></div>',{cls:'full'});
+  const body=$('#ckBody',m),prog=$('#ckProg',m);
+  const SN=['Вход','Спецификация','Покупатель','Получение','Комментарий','Подтверждения','Оплата'];
+  const nav=(nextLabel='Далее')=>`<div class="ck-nav">${K.step>1?'<button class="btn btn-ghost" data-k="back">← Назад</button>':'<span></span>'}<button class="btn btn-cta" data-k="next">${nextLabel}</button></div>`;
+  const payDiscOf=()=>K.pay==='full'?r10(r.total*CFG.prepayDiscount):0;
+  function draw(err=''){
+    r=calc();
+    prog.innerHTML=SN.map((s,i)=>`<span class="${i===K.step?'on':''} ${i<K.step?'done':''}">${i+1}. ${s}</span>`).join('');
+    const E=err?`<div class="note err">${err}</div>`:'';
+    if(K.step===0){authView(body,u=>{K.recipient=K.recipient||u.name;K.rphone=prettyPhone(u.phone);const p=store.get('fl_users',{})[u.phone];if(p&&p.buyer)K.buyer=Object.assign(K.buyer,p.buyer);K.step=1;draw()},'<p class="small muted">Для оформления заказа войдите по номеру телефона.</p>');return}
+    if(K.step===1)body.innerHTML=`<h3>Проверьте спецификацию</h3><p class="muted small">${esc(coatLabel())} · ${MILLINGS[S.milling].n} · ${esc(S.color.name)}${optsLabel()?' · '+optsLabel():''}</p><div class="spec">${S.items.map((it,i)=>`<div class="srow"><div class="spv">${facadeSVG(lookFor(it),it,{marks:true,shadow:false,labels:false})}</div><div><b>${i+1}. ${TYPES[it.type]} ${esc(it.h)} × ${esc(it.w)} × ${esc(it.t)} мм</b><div class="small muted">${hingeText(it)} · ${handleText(it)}</div></div><div class="sp">× ${esc(it.qty)}<br>${fmt(r.lines[i].total)}</div></div>`).join('')}</div><table class="bd">${breakdownRows(r)}</table><p class="small"><button class="linkbtn" data-k="edit">Изменить в конфигураторе</button></p>${nav()}`;
+    else if(K.step===2){const b=K.buyer,biz=b.type!=='person';body.innerHTML=`<h3>Тип покупателя</h3><div class="chips">${[['person','Физическое лицо'],['ip','ИП'],['company','Юридическое лицо']].map(([k,n])=>`<button class="chip ${b.type===k?'on':''}" data-bt="${k}">${n}</button>`).join('')}</div>${biz?`<div class="fgrid2 mt"><label class="fld"><span>${b.type==='ip'?'ИИН / БИН':'БИН'} (12 цифр)</span><input class="inp" data-b="bin" inputmode="numeric" maxlength="12" value="${esc(b.bin)}"></label><label class="fld"><span>Наименование</span><input class="inp" data-b="org" value="${esc(b.org)}" placeholder="${b.type==='ip'?'ИП Иванов':'ТОО «Компания»'}"></label><label class="fld"><span>Юридический адрес</span><input class="inp" data-b="addr" value="${esc(b.addr)}"></label><label class="fld"><span>Банк и ИИК (IBAN KZ…)</span><input class="inp" data-b="bank" value="${esc(b.bank)}"></label></div><p class="small muted mt">Реквизиты сохранятся в профиле — их можно дополнить позже. Счёт с НДС сформируется автоматически.</p>`:`<p class="muted mt">Оформляем на ${esc(USER.name)}, ${esc(prettyPhone(USER.phone))}.</p>`}${E}${nav()}`}
+    else if(K.step===3){const dl=K.recv==='delivery';body.innerHTML=`<h3>Получение</h3><div class="chips"><button class="chip ${!dl?'on':''}" data-rv="pickup">Самовывоз, Павлодар</button><button class="chip ${dl?'on':''}" data-rv="delivery">Доставка</button></div>${dl?`<div class="fgrid2 mt"><label class="fld"><span>Город</span><select data-ckcity>${cityOptions(S.city==='pickup'?'Павлодар':S.city)}</select></label><label class="fld"><span>Адрес</span><input class="inp" data-kf="address" value="${esc(K.address)}" placeholder="Улица, дом, квартира"></label><label class="fld"><span>Получатель</span><input class="inp" data-kf="recipient" value="${esc(K.recipient)}"></label><label class="fld"><span>Телефон получателя</span><input class="inp" data-kf="rphone" type="tel" value="${esc(K.rphone)}"></label></div>`:`<p class="muted mt">Склад в Павлодаре, ул. [адрес] · Пн–Пт 9:00–18:00. Мы сообщим, когда заказ будет готов к выдаче.</p>`}<table class="bd">${breakdownRows(r)}</table>${E}${nav()}`;const pi=body.querySelector('[data-kf=rphone]');if(pi)bindPhoneMask(pi)}
+    else if(K.step===4)body.innerHTML=`<h3>Комментарий и файлы</h3><label class="fld"><span>Комментарий к заказу</span><textarea data-kf="comment" placeholder="Например: ящики под доводчики, удобное время доставки">${esc(K.comment)}</textarea></label><label class="fld mt"><span>Чертежи, эскизы, фото интерьера (необязательно)</span><input type="file" multiple data-files accept="image/*,.pdf,.dwg,.dxf,.xlsx,.csv"></label>${K.files.length?`<p class="small muted mt">Прикреплено: ${K.files.map(esc).join(', ')}</p>`:''}${nav()}`;
+    else if(K.step===5){const c=COATINGS[S.coating];body.innerHTML=`<h3>Подтверждения</h3><div class="note warn"><b>Риски технологии «${c.name}»:</b> ${c.risks.toLowerCase()}.${warnings().length?'<ul>'+warnings().map(w=>`<li>${w.txt}</li>`).join('')+'</ul>':''}</div>
+      <label class="check"><input type="checkbox" data-ag="offer" ${K.ag.offer?'checked':''}><span>Принимаю условия <a href="#" data-doc="offer">публичной оферты</a></span></label>
+      <label class="check"><input type="checkbox" data-ag="pd" ${K.ag.pd?'checked':''}><span>Даю <a href="#" data-doc="pd">согласие на сбор и обработку персональных данных</a></span></label>
+      <label class="check"><input type="checkbox" data-ag="risk" ${K.ag.risk?'checked':''}><span>Ознакомлен(а) с рисками и ограничениями выбранной технологии</span></label>
+      <label class="check"><input type="checkbox" data-ag="custom" ${K.ag.custom?'checked':''}><span>Понимаю, что изделия изготавливаются по индивидуальным размерам, условия возврата указаны в оферте</span></label>${E}${nav()}`}
+    else if(K.step===6){
+      const biz=K.buyer.type!=='person';if(K.pay==='invoice'&&!biz)K.pay='half';
+      const pd=r10(r.total*CFG.prepayDiscount);
+      const opts=[['half','50% сейчас + 50% при получении','Доплата по ссылке, Kaspi QR или картой при получении',`${fmt(r.total*.5)} сейчас`],['full','Полная оплата онлайн','Карта, Kaspi QR / Kaspi Pay · скидка 2%',fmt(r.total-pd)],['invoice','Оплата по счёту','Счёт с НДС по реквизитам, безналичный перевод'+(biz?'':' · для ИП и юрлиц'),fmt(r.total),!biz],['custom','Нужны другие условия оплаты','Менеджер согласует процент предоплаты или график платежей','заявка'],['installment','Рассрочка','Через банки-партнёры · скоро','',true],['credit','Кредит онлайн','Заявка в банк без визита в отделение · скоро','',true]];
+      body.innerHTML=`<h3>Способ оплаты</h3><div class="paym">${opts.map(([k,n,d,a,dis])=>`<label class="payc ${K.pay===k?'on':''} ${dis?'dis':''}"><input type="radio" name="pay" value="${k}" ${K.pay===k?'checked':''} ${dis?'disabled':''}><span><b>${n}</b><span class="small muted">${d}</span></span><span class="pa">${a}</span></label>`).join('')}</div>${K.pay==='custom'?`<label class="fld mt"><span>Какие условия вам нужны?</span><textarea data-kf="customNote" placeholder="Например: предоплата 30%, остаток через 14 дней после отгрузки">${esc(K.customNote)}</textarea></label>`:''}<table class="bd">${breakdownRows(r,payDiscOf())}</table><p class="small muted">Цена фиксируется до ${fdate(addWorkdays(new Date(),CFG.priceFixDays))} (3 рабочих дня). После предоплаты фиксируется и срок изготовления.</p>${E}${nav(K.pay==='custom'?'Отправить заявку':K.pay==='invoice'?'Оформить и получить счёт':'Оформить и оплатить')}`;
+    }
+  }
+  function validateStep(){
+    if(K.step===2&&K.buyer.type!=='person'){if(!/^\d{12}$/.test(K.buyer.bin))return'БИН / ИИН должен состоять из 12 цифр';if(K.buyer.org.trim().length<2)return'Укажите наименование'}
+    if(K.step===3&&K.recv==='delivery'){if(K.address.trim().length<5)return'Укажите адрес доставки';if(K.recipient.trim().length<2)return'Укажите получателя';if(!validPhone(K.rphone))return'Проверьте телефон получателя'}
+    if(K.step===5&&!(K.ag.offer&&K.ag.pd&&K.ag.risk&&K.ag.custom))return'Отметьте все подтверждения, чтобы продолжить';
+    if(K.step===6&&K.pay==='custom'&&K.customNote.trim().length<3)return'Опишите нужные условия оплаты';
+    return'';
+  }
+  function complete(){
+    const users=store.get('fl_users',{});users[USER.phone]=Object.assign(users[USER.phone]||{},{name:USER.name,email:USER.email,buyer:K.buyer});store.set('fl_users',users);
+    const o=createOrder(K,r,payDiscOf());
+    if(K.pay==='full'||K.pay==='half')payScreen(body,o.total*o.prepayPct/100,K.pay==='full'?'Оплата заказа':'Предоплата 50%',()=>{o.paid=r10(o.total*o.prepayPct/100);pushStatus(o,2);done(o)});
+    else done(o);
+  }
+  function done(o){
+    prog.innerHTML='';
+    body.innerHTML=`<span class="eyebrow">Заказ оформлен</span><div class="bigno">№ ${o.no}</div><p class="muted">${o.pay==='custom'?'Заявка на индивидуальные условия оплаты отправлена менеджеру. Он свяжется с вами и пришлёт ссылку на оплату.':o.pay==='invoice'?'Счёт на оплату сформирован. Срок изготовления зафиксируем после поступления предоплаты.':'Предоплата получена, заказ поставлен в очередь на производство.'}</p>
+    <dl class="kv"><dt>Статус</dt><dd><span class="stbadge ${o.status<2?'w':''}">${statusName(o)}</span></dd><dt>Сумма</dt><dd>${fmt(o.total)} (НДС ${fmt(o.total*CFG.vat/(100+CFG.vat))})</dd><dt>Оплачено</dt><dd>${fmt(o.paid)}</dd><dt>Готовность</dt><dd>ориентировочно ${fdate(o.sum.ready)}</dd><dt>Получение</dt><dd>${o.recv==='pickup'?'Самовывоз, Павлодар':esc(cityBy(o.city).name+', '+o.address)}</dd></dl>
+    <div class="note ok">Сообщение со ссылкой на отслеживание отправлено в WhatsApp и SMS${USER.email?' и на '+esc(USER.email):''} (демо).</div>
+    <div class="actions"><button class="btn btn-cta" data-k="track">Отследить заказ</button>${o.pay==='invoice'?'<button class="btn btn-ghost" data-k="invoice">Скачать счёт</button>':''}<button class="btn btn-ghost" data-k="spec">Спецификация (PDF)</button><button class="btn btn-ghost" data-k="close">Закрыть</button></div>`;
+    K.order=o;toast(`WhatsApp (демо): заказ № ${o.no} — ${statusName(o)}`,'ok',5000);
+  }
+  m.addEventListener('click',e=>{
+    const bt=e.target.closest('[data-bt]');if(bt){K.buyer.type=bt.dataset.bt;draw();return}
+    const rv=e.target.closest('[data-rv]');if(rv){K.recv=rv.dataset.rv;if(K.recv==='pickup')S.city='pickup';else if(S.city==='pickup')S.city='Павлодар';refresh();draw();return}
+    const b=e.target.closest('[data-k]');if(!b)return;const k=b.dataset.k;
+    if(k==='back'){K.step--;if(K.step<1)K.step=1;draw()}
+    else if(k==='next'){const er=validateStep();if(er){draw(er);return}if(K.step===6)complete();else{K.step++;draw()}body.parentElement.parentElement.scrollTop=0}
+    else if(k==='edit'){closeModal(m);setStep(5)}
+    else if(k==='close')closeModal(m);
+    else if(k==='track'){closeModal(m);openOrderView(K.order)}
+    else if(k==='invoice')printInvoice(K.order);
+    else if(k==='spec')printOrderSpec(K.order);
+  });
+  m.addEventListener('input',e=>{const t=e.target;if(t.dataset.b)K.buyer[t.dataset.b]=t.dataset.b==='bin'?t.value.replace(/\D/g,'').slice(0,12):t.value;if(t.dataset.b==='bin')t.value=K.buyer.bin;if(t.dataset.kf)K[t.dataset.kf]=t.value});
+  m.addEventListener('change',e=>{const t=e.target;if(t.dataset.ag){K.ag[t.dataset.ag]=t.checked}if(t.name==='pay'){K.pay=t.value;draw()}if(t.matches('[data-ckcity]')){S.city=t.value;refresh();draw()}if(t.matches('[data-files]')){K.files=[...t.files].map(f=>f.name);draw()}});
+  draw();
+}
+function createOrder(K,r,payDisc){
+  let no;do{no=String(10246+Math.floor(Math.random()*8000))}while(ORDERS.some(o=>o.no===no));
+  const now=new Date().toISOString(),total=r.total-payDisc;
+  const o={no,created:now,phone:USER.phone,name:USER.name,email:USER.email||'',buyer:clone(K.buyer),recv:K.recv,city:S.city,address:K.address,recipient:K.recipient,rphone:K.rphone,comment:K.comment,files:K.files,pay:K.pay,customNote:K.customNote,prepayPct:K.pay==='full'?100:K.pay==='half'?50:K.pay==='invoice'?100:0,payDisc,total,paid:0,spec:clone(S),sum:{total:r.total,area:r.area,days:r.days,ready:r.ready.toISOString(),tr:r.tr},status:1,prod:0,history:[{s:0,t:now},{s:1,t:now}],agreed:{...K.ag,risks:COATINGS[S.coating].risks,at:now},priceFixUntil:addWorkdays(new Date(),CFG.priceFixDays).toISOString()};
+  ORDERS.push(o);saveOrders();return o;
+}
+function statusName(o){if(o.status===1&&o.pay==='custom'&&!o.paid)return'Согласование условий оплаты';if(o.status===3)return`В производстве: ${PROD[o.prod].toLowerCase()}`;return STATUSES[o.status]}
+function pushStatus(o,s){o.status=s;o.history.push({s,t:new Date().toISOString(),p:s===3?o.prod:undefined});saveOrders()}
+function nextStatus(o){
+  if(o.status===1&&!o.paid)o.paid=r10(o.total*(o.prepayPct||50)/100);
+  if(o.status===3&&o.prod<4){o.prod++;o.history.push({s:3,p:o.prod,t:new Date().toISOString()});saveOrders();return}
+  let s=o.status+1;
+  if(s===5&&o.paid>=o.total)s=6;
+  if(s===6&&o.recv==='pickup')s=7;
+  if(s===7)o.paid=o.total;
+  if(s<=7)pushStatus(o,s);
+}
+function printOrderSpec(o){withState(o.spec,()=>openPrint(`Заказ № ${o.no}`,specHTML(`Спецификация к заказу № ${o.no}`,{payDisc:o.payDisc,html:`<p><b>Покупатель:</b> ${esc(o.buyer.type==='person'?o.name:o.buyer.org+', БИН '+o.buyer.bin)} · ${esc(prettyPhone(o.phone))}</p><p><b>Получение:</b> ${o.recv==='pickup'?'самовывоз, Павлодар':esc(cityBy(o.city).name+', '+o.address)}</p><p class="muted">Подтверждено ознакомление с рисками технологии и условиями оферты: ${fdate(o.agreed.at,{day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'})}.</p>`}),`zakaz-${o.no}.html`))}
+function printInvoice(o){
+  const vat=o.total*CFG.vat/(100+CFG.vat);
+  openPrint(`Счёт ${o.no}`,`<h1>Счёт на оплату № ${o.no} от ${fdate(o.created,{day:'numeric',month:'long',year:'numeric'})}</h1><p class="muted">Учебный документ</p><table><tr><th>Поставщик</th><td>ТОО «[Название]» (${BRAND}), БИН 000000000000, г. Павлодар, ИИК KZ00 0000 0000 0000 0000</td></tr><tr><th>Покупатель</th><td>${esc(o.buyer.org||o.name)}${o.buyer.bin?', БИН/ИИН '+esc(o.buyer.bin):''}${o.buyer.addr?', '+esc(o.buyer.addr):''}${o.buyer.bank?', '+esc(o.buyer.bank):''}</td></tr></table><table><tr><th>№</th><th>Наименование</th><th>Кол-во</th><th>Сумма, ₸</th></tr><tr><td>1</td><td>Мебельные фасады МДФ по спецификации к заказу № ${o.no} (${fnum(o.sum.area)} м²), включая упаковку и доставку</td><td>1</td><td>${fmt(o.total)}</td></tr></table><p><b>Итого: ${fmt(o.total)}</b>, в т. ч. НДС ${CFG.vat}%: ${fmt(vat)}</p><p class="muted">Оплата счёта означает согласие с условиями публичной оферты. Электронный счёт-фактура будет выписан в ИС ЭСФ.</p>`,`schet-${o.no}.html`);
+}
+
+/* ============================ Отслеживание и кабинет ============================ */
+function planDates(o){const c=new Date(o.created),ready=new Date(o.sum.ready),tr=o.sum.tr||[1,3];return{1:c,2:c,3:addWorkdays(c,1),4:ready,5:ready,6:addWorkdays(ready,1),7:o.recv==='pickup'?addWorkdays(ready,1):addDays(addWorkdays(ready,1),tr[1])}}
+function orderViewHTML(o){
+  const P=planDates(o),act=s=>{const h=o.history.filter(x=>x.s===s);return h.length?h[0].t:null};
+  let shown=[1,2,3,4,5,6,7];if(o.pay==='full'||o.prepayPct>=100)shown=shown.filter(s=>s!==5);if(o.recv==='pickup')shown=shown.filter(s=>s!==6);
+  const idx=shown.indexOf(o.status),pct=Math.round(((idx<0?0:idx)+(o.status===3?o.prod/5:0))/(shown.length-1)*100);
+  const rest=o.total-o.paid,canPay=rest>0&&o.status>=4&&o.status<7;
+  return`<span class="eyebrow">Заказ № ${o.no}</span><h3 style="margin-bottom:6px">${statusName(o)}</h3><div class="progress"><div style="width:${pct}%"></div></div>
+  <ul class="tl">${shown.map(s=>{const st=s<o.status||(o.status===7&&s===7)?'done':s===o.status?'cur':'todo',a=act(s);return`<li class="${st}"><i></i><b>${s===1&&o.pay==='custom'?'Согласование условий оплаты':STATUSES[s]}</b><span class="small muted">План: ${fdate(P[s])}${a?` · факт: ${fdate(a,{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'})}`:''}</span>${s===3?`<div class="sub-st">${PROD.map((p,i)=>`<span class="${o.status>3||(o.status===3&&i<o.prod)?'d':o.status===3&&i===o.prod?'c':''}">${p}</span>`).join('')}</div>`:''}${s===6&&o.status>=6?`<div class="small muted">Номер отправления: KZ${o.no}0042 (демо)</div>`:''}</li>`}).join('')}</ul>
+  <dl class="kv"><dt>Сумма</dt><dd>${fmt(o.total)}</dd><dt>Оплачено</dt><dd>${fmt(o.paid)}${rest>0?` · осталось ${fmt(rest)}`:''}</dd><dt>Состав</dt><dd>${esc(withState(o.spec,()=>coatLabel()+' · '+MILLINGS[S.milling].n+' · '+S.color.name))} · ${fnum(o.sum.area)} м²</dd><dt>Получение</dt><dd>${o.recv==='pickup'?'Самовывоз, Павлодар':esc(cityBy(o.city).name+', '+o.address)}</dd></dl>
+  ${o.status>=4?`<div class="flabel mt">Фото готовых изделий перед отгрузкой</div><div class="spec" style="grid-template-columns:repeat(auto-fill,minmax(70px,1fr));display:grid">${withState(o.spec,()=>S.items.slice(0,6).map(it=>`<div class="srow" style="display:block;padding:6px"><div class="spv" style="width:100%">${facadeSVG(lookFor(it),it,{shadow:false,labels:false})}</div></div>`).join(''))}</div>`:''}
+  <div class="actions">${canPay?'<button class="btn btn-cta" data-o="pay">Доплатить '+fmt(rest)+'</button>':''}<a class="btn btn-ghost" href="https://wa.me/77000000000?text=${encodeURIComponent('Здравствуйте! Вопрос по заказу № '+o.no)}" target="_blank" rel="noopener">Написать менеджеру</a><button class="btn btn-ghost" data-o="docs">Скачать документы</button><button class="btn btn-ghost" data-o="repeat">Повторить заказ</button></div>
+  ${o.status<7?'<p class="small muted mt2" style="border-top:1px dashed var(--border);padding-top:12px">Демо: смена статуса в админ-панели — <button class="linkbtn" data-o="next">перевести заказ на следующий этап</button></p>':''}`;
+}
+function openOrderView(o,box){
+  const m=box?null:openModal('<div id="ov"></div>',{cls:'full'});const el=box||$('#ov',m);
+  const root=document.createElement('div');el.innerHTML='';el.append(root);
+  const draw=()=>{root.innerHTML=orderViewHTML(o)};
+  root.addEventListener('click',e=>{
+    const b=e.target.closest('[data-o]');if(!b)return;const a=b.dataset.o;
+    if(a==='next'){nextStatus(o);draw();toast(`WhatsApp (демо): заказ № ${o.no} — ${statusName(o)}${o.status===5?'. Ссылка на доплату отправлена':''}`,'ok',5000)}
+    else if(a==='pay')payScreen(root,o.total-o.paid,'Доплата по заказу № '+o.no,()=>{o.paid=o.total;if(o.status===5)pushStatus(o,o.recv==='pickup'?5:6);saveOrders();setTimeout(()=>{root.remove();openOrderView(o,el)},50)});
+    else if(a==='docs'){printOrderSpec(o);if(o.pay==='invoice')setTimeout(()=>printInvoice(o),800)}
+    else if(a==='repeat'){S=Object.assign(defaultState(),clone(o.spec));S.step=5;S.items.forEach(it=>it.id=uid());$$('.modal').forEach(closeModal);full();$('#configurator').scrollIntoView({behavior:'smooth'});toast(`Параметры заказа № ${o.no} загружены в конфигуратор. Цена пересчитана по актуальному прайсу.`,'ok')}
+  });
+  draw();
+}
+function openTracking(no='',phone='+7 '){
+  const m=openModal('<div id="trk"></div>',{cls:'full'});const box=$('#trk',m);
+  const draw=(err='')=>{box.innerHTML=`<h3>Отслеживание заказа</h3><p class="muted small">Введите номер заказа и телефон, указанный при оформлении. Демо: <b>10245</b> и <b>+7 701 000-00-00</b>.</p><div class="fgrid2"><label class="fld"><span>Номер заказа</span><input class="inp" id="tNo" inputmode="numeric" value="${esc(no)}"></label><label class="fld"><span>Телефон</span><input class="inp" id="tPh" type="tel" value="${esc(phone)}"></label></div>${err?`<div class="note err">${err}</div>`:''}<button class="btn btn-cta mt" id="tGo">Получить код</button>${USER?'':'<p class="small muted mt">Есть аккаунт? Все заказы — в <button class="linkbtn" id="tLogin">личном кабинете</button>.</p>'}`;bindPhoneMask($('#tPh',box));
+    $('#tGo',box).onclick=()=>{no=$('#tNo',box).value.replace(/\D/g,'');phone=$('#tPh',box).value;const o=ORDERS.find(x=>x.no===no&&x.phone===normPhone(phone));if(!o){draw('Заказ не найден. Проверьте номер заказа и телефон.');return}
+      if(USER&&USER.phone===o.phone){openOrderView(o,box);return}
+      const code=String(Math.floor(1000+Math.random()*9000));let tries=0;toast(`Демо: SMS с кодом <b>${code}</b> отправлено на ${esc(maskPhone(phone))}`,'',7000);
+      const dc=(er='')=>{box.innerHTML=`<h3>Код подтверждения</h3><p class="muted small">Отправили SMS на ${esc(maskPhone(phone))}.</p><div class="note info small">Демо-режим: ваш код — <b>${code}</b></div><label class="fld"><span>Код</span><input class="inp otp" id="tC" inputmode="numeric" maxlength="4"></label>${er?`<div class="note err">${er}</div>`:''}<button class="btn btn-cta mt" id="tOk">Показать заказ</button>`;const ci=$('#tC',box);ci.focus();ci.onkeydown=e=>{if(e.key==='Enter')$('#tOk',box).click()};$('#tOk',box).onclick=()=>{if(ci.value.trim()===code)openOrderView(o,box);else if(++tries>=3)draw('Превышено число попыток. Запросите новый код.');else dc('Неверный код')}};dc()};
+    const l=$('#tLogin',box);if(l)l.onclick=()=>{closeModal(m);openCabinet()};
+  };
+  draw();
+}
+function openCabinet(){
+  if(!USER){const m=openModal('<div id="lg"></div>');authView($('#lg',m),()=>{closeModal(m);openCabinet()},'<p class="small muted">Войдите, чтобы увидеть свои заказы, образцы и проекты. Или <button class="linkbtn" id="lgTrk">отследите заказ по номеру</button>.</p>');const t=$('#lgTrk',m);if(t)t.onclick=()=>{closeModal(m);openTracking()};return}
+  const m=openModal('<div id="cab"></div>',{cls:'full'});const box=$('#cab',m);let tab='orders';
+  function draw(){
+    const my=ORDERS.filter(o=>o.phone===USER.phone).sort((a,b)=>b.created.localeCompare(a.created)),SO=store.get('fl_sample_orders',[]).filter(x=>x.phone===USER.phone),PR=store.get('fl_projects',[]).filter(x=>x.phone===USER.phone);
+    let c='';
+    if(tab==='orders')c=my.length?`<div class="olist">${my.map(o=>`<button class="orow" data-ord="${o.no}"><span><b>№ ${o.no}</b><br><span class="small muted">${fdate(o.created,{day:'numeric',month:'long',year:'numeric'})} · ${fmt(o.total)}</span></span><span class="stbadge ${o.status<2?'w':''}">${statusName(o)}</span></button>`).join('')}</div>`:'<p class="muted">Заказов пока нет.</p>';
+    else if(tab==='samples')c=SO.length?`<div class="olist">${SO.map(s=>`<div class="orow" style="cursor:default"><span><b>№ ${esc(s.no)}</b><br><span class="small muted">${esc(s.items.join(', '))}</span></span><span class="small">${s.sum?fmt(s.sum):'бесплатно'}</span></div>`).join('')}</div>`:'<p class="muted">Заказов образцов пока нет.</p>';
+    else if(tab==='projects')c=PR.length?`<div class="olist">${PR.map(p=>`<a class="orow" href="${esc(p.url)}" data-proj><span><b>${esc(p.title)}</b><br><span class="small muted">${fdate(p.date,{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'})}</span></span><span class="small">Открыть →</span></a>`).join('')}</div>`:'<p class="muted">Сохранённых проектов нет. Нажмите «Сохранить проект» в конфигураторе.</p>';
+    else c=`<dl class="kv"><dt>Имя</dt><dd>${esc(USER.name)}</dd><dt>Телефон</dt><dd>${esc(prettyPhone(USER.phone))}</dd><dt>Email</dt><dd>${esc(USER.email||'—')}</dd></dl><button class="btn btn-ghost" data-logout>Выйти</button>`;
+    box.innerHTML=`<h3>Личный кабинет</h3><p class="muted small">${esc(USER.name)} · ${esc(prettyPhone(USER.phone))}</p><div class="tabs">${[['orders','Заказы'],['samples','Образцы'],['projects','Проекты'],['profile','Профиль']].map(([k,n])=>`<button class="chip ${tab===k?'on':''}" data-tab="${k}">${n}</button>`).join('')}</div>${c}`;
+  }
+  box.addEventListener('click',e=>{
+    const t=e.target.closest('[data-tab]');if(t){tab=t.dataset.tab;draw();return}
+    const o=e.target.closest('[data-ord]');if(o){openOrderView(ORDERS.find(x=>x.no===o.dataset.ord),box);return}
+    if(e.target.closest('[data-proj]')){closeModal(m);setTimeout(loadFromHash,30);return}
+    if(e.target.closest('[data-logout]')){USER=null;store.set('fl_user',null);updateHeader();closeModal(m);toast('Вы вышли из аккаунта')}
+  });
+  draw();
+}
+function updateHeader(){$('#hOrderLbl').textContent=USER?USER.name.split(' ')[0]:'Мой заказ'}
+$('#hOrder').addEventListener('click',()=>USER?openCabinet():openTracking());
+$('#hSamples').addEventListener('click',openSamples);
+$('#openSamples2').addEventListener('click',openSamples);
+$('#trkForm').addEventListener('submit',e=>{e.preventDefault();openTracking($('#trkNo').value.replace(/\D/g,''),$('#trkPhone').value)});
+bindPhoneMask($('#trkPhone'));
+
+/* ============================ Статические секции ============================ */
+function heroSVG(){
+  const up={fill:'#E9E0D2',kind:'uni',finish:'matte',milling:'shaker'},low={fill:'#45494E',kind:'uni',finish:'matte',milling:'shaker'};
+  const cw=396,g=4,W=4*cw+3*g;let s='';
+  const put=(L,x,y,w,h,ex='')=>`<g transform="translate(${x} ${y})">${facadeG(L,{w,h})}${ex}</g>`;
+  const bar=(x,y,vert,len=160)=>vert?`<rect x="${x-5}" y="${y}" width="10" height="${len}" rx="5" fill="#C7AD7F"/>`:`<rect x="${x}" y="${y-5}" width="${len}" height="10" rx="5" fill="#C7AD7F"/>`;
+  s+=`<rect x="-80" y="-80" width="${W+160}" height="2260" fill="#EEE7DC"/>`;
+  for(let i=0;i<4;i++)s+=put(up,i*(cw+g),0,cw,716,bar(i%2?40:cw-40,716-210,true));
+  s+=`<rect x="0" y="720" width="${W}" height="440" fill="#F6F1E9"/>`;
+  for(let x=0;x<W;x+=150)s+=`<line x1="${x}" y1="720" x2="${x}" y2="1160" stroke="#E5DDD0" stroke-width="2"/>`;
+  for(let y=795;y<1160;y+=75)s+=`<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="#E5DDD0" stroke-width="2"/>`;
+  s+=`<g transform="translate(-30 1160)">${facadeG({fill:'#8B5E3C',kind:'wood',finish:'matte',milling:'smooth',grain:'h',seed:9},{w:W+60,h:40})}</g>`;
+  const ly=1204;
+  s+=put(low,0,ly,cw,716,bar(cw-40,40,true));
+  [[176,0],[266,180],[266,450]].forEach(([h,y])=>{s+=put(low,cw+g,ly+y,cw,h,bar(cw/2-80,40,false))});
+  s+=put(low,2*(cw+g),ly,cw,716,bar(cw-40,40,true))+put(low,3*(cw+g),ly,cw,716,bar(40,40,true));
+  s+=`<rect x="0" y="${ly+720}" width="${W}" height="96" fill="#2B2F33"/><rect x="-80" y="${ly+816}" width="${W+160}" height="200" fill="#D9CFC0"/>`;
+  return`<svg viewBox="-60 -60 ${W+120} ${ly+880}" role="img" aria-label="Кухня с фасадами: эмаль, рамочная фрезеровка">${s}</svg>`;
+}
+const GALLERY=[
+  {t:'Шейкер в шёлковом сером',c:'enamel',v:'matte',m:'shaker',col:()=>colorRAL('7044')},
+  {t:'Тёплый дуб сонома',c:'pvc',v:'wood',m:'smooth',col:()=>DECORS.pvc_wood[0]},
+  {t:'Белый глянцевый акрил',c:'acryl',v:'gloss',m:'smooth',col:()=>DECORS.acryl[0]},
+  {t:'Орех в рамке',c:'veneer',v:'walnut',m:'shaker',col:()=>veneerColor('walnut','nat')},
+  {t:'Классика с патиной',c:'enamel',v:'semi',m:'classic',col:()=>colorRAL('1015'),opts:{patina:true}},
+  {t:'Антрацитовый HPL',c:'hpl',v:'std',m:'smooth',col:()=>DECORS.hpl[2]},
+  {t:'Графит с ручкой-профилем',c:'enamel',v:'matte',m:'handle',col:()=>colorRAL('7016')},
+  {t:'Кашемир модерн',c:'pvc',v:'matte',m:'modern',col:()=>DECORS.pvc_matte[1]},
+  {t:'Витрина в белом',c:'enamel',v:'matte',m:'vitrine',col:()=>colorRAL('9010')},
+  {t:'Пастельный зелёный, глянец',c:'enamel',v:'gloss',m:'smooth',col:()=>colorRAL('6021')}
+];
+function galLook(g){return withState(Object.assign(defaultState(),{coating:g.c,variant:g.v,milling:g.m,color:g.col(),opts:Object.assign({metallic:false,patina:false,double:false},g.opts||{})}),()=>lookFor(null,g.m))}
+function renderGallery(){
+  const fc=$('#gfCoat').value,fm=$('#gfMill').value;
+  const list=GALLERY.map((g,i)=>[g,i]).filter(([g])=>(!fc||g.c===fc)&&(!fm||g.m===fm));
+  $('#galGrid').innerHTML=list.length?list.map(([g,i])=>{const L=galLook(g),Ld={...L,milling:g.m==='vitrine'?'shaker':g.m};return`<div class="gcard"><div class="gpv"><svg viewBox="-40 -40 880 800" role="img" aria-label="${esc(g.t)}"><g>${facadeG(L,{w:396,h:716},{labels:false})}</g><g transform="translate(404 0)">${facadeG(Ld,{w:396,h:356})}</g><g transform="translate(404 360)">${facadeG(Ld,{w:396,h:356})}</g></svg></div><div class="gb"><b>${esc(g.t)}</b><span class="small muted">${COATINGS[g.c].name} · ${MILLINGS[g.m].n} · ${esc(g.col().name)}</span><button class="btn btn-ghost btn-sm" data-gal="${i}">Хочу такой</button></div></div>`}).join(''):'<p class="muted">По выбранным фильтрам работ нет — попробуйте другое сочетание.</p>';
+}
+$('#galGrid').addEventListener('click',e=>{
+  const b=e.target.closest('[data-gal]');if(!b)return;const g=GALLERY[+b.dataset.gal];
+  S.coating=g.c;S.variant=g.v;S.milling=g.m;S.color=g.col();if(S.color.sys==='RAL')S.lastRal=S.color.code;if(g.c==='veneer')S.tone='nat';
+  S.opts=Object.assign({metallic:false,patina:false,double:false},g.opts||{});
+  const c=COATINGS[g.c];S.items.forEach(it=>{if(!c.th.includes(+it.t))it.t=c.th.includes(19)?19:c.th[0]});
+  S.step=4;full();$('#configurator').scrollIntoView({behavior:'smooth'});toast(`Параметры «${esc(g.t)}» перенесены в конфигуратор. Укажите размеры.`,'ok');
+});
+function renderStatic(){
+  $('#heroVis').innerHTML=heroSVG();
+  $('#techCards').innerHTML=Object.entries(COATINGS).map(([k,c])=>{const minP=Math.min(...Object.values(c.variants).map(v=>v.p)),dmin=Math.min(...Object.values(c.variants).map(v=>v.days||c.days));return`<div class="tcard"><div class="tsw" style="background:${c.swatch}"></div><h3 style="margin:4px 0 0">${c.name}</h3><p class="small muted" style="margin:0">${c.pros}</p><button class="linkbtn" data-risk="${k}">Риски и уход →</button><div class="tmeta"><span>от <b>${fmt(minP)}</b>/м²</span><span class="muted">от ${dmin} дн.</span></div></div>`}).join('');
+  $('#techTable').innerHTML=`<thead><tr><th>Покрытие</th><th>Плюсы</th><th>Риски и ограничения</th><th>Где применять</th><th>Уход</th></tr></thead><tbody>${Object.values(COATINGS).map(c=>`<tr><td>${c.name}</td><td>${c.pros}</td><td>${c.risks}</td><td>${c.where}</td><td>${c.care}</td></tr>`).join('')}</tbody>`;
+  $('#techCards').addEventListener('click',e=>{const b=e.target.closest('[data-risk]');if(b)openRisks(b.dataset.risk)});
+  $('#gfCoat').innerHTML+=Object.entries(COATINGS).map(([k,c])=>`<option value="${k}">${c.name}</option>`).join('');
+  $('#gfMill').innerHTML+=Object.entries(MILLINGS).map(([k,m])=>`<option value="${k}">${m.n}</option>`).join('');
+  $('#gfCoat').addEventListener('change',renderGallery);$('#gfMill').addEventListener('change',renderGallery);renderGallery();
+  const zc={};CITIES.forEach(c=>{(zc[c[2]]=zc[c[2]]||[]).push(c[1])});
+  $('#zones').innerHTML=Object.entries(ZONES).map(([z,Z])=>`<div class="zone" style="--zc:${Z.c}"><b>${Z.n}</b><div class="zt">${Z.tariff}</div><div class="small muted">${z==='0'?'Склад в Павлодаре':zc[z].filter(n=>!/Другой/.test(n)).join(', ')}</div><div class="small">${+z?`${Z.tr[0]===Z.tr[1]?Z.tr[0]+' день':Z.tr[0]+'–'+Z.tr[1]+' дней'} в пути`:'—'}</div></div>`).join('');
+  $('#dcCity').innerHTML=cityOptions('Астана');
+  const dc=()=>{const z=cityBy($('#dcCity').value).zone,a=Math.max(0,+$('#dcArea').value||0),t=+$('#dcT').value,w=a*t/1000*750*1.1,cost=deliveryCost(z,w,0),pack=z>=3?a*CFG.packRigid:0,Z=ZONES[z];
+    $('#dcRes').innerHTML=`<table class="bd"><tr><td>Вес с упаковкой</td><td>${fnum(w,0)} кг</td></tr><tr><td>Доставка (${Z.n.toLowerCase()})</td><td>${z===0?'бесплатно':fmt(cost)}</td></tr>${pack?`<tr><td>Жёсткая упаковка</td><td>${fmt(pack)}</td></tr>`:''}<tr class="tot"><td>Итого</td><td>${fmt(cost+pack)}</td></tr></table><p class="small muted">${z?`В пути ${Z.tr[0]===Z.tr[1]?Z.tr[0]+' день':Z.tr[0]+'–'+Z.tr[1]+' дней'}.`:''}${z===1?' Бесплатно при заказе от 300 000 ₸.':''}</p>`};
+  ['#dcCity','#dcArea','#dcT'].forEach(s=>$(s).addEventListener('input',dc));dc();
+  $('#b2bTpl').addEventListener('click',downloadTemplate);
+  $$('[data-goto-step]').forEach(a=>a.addEventListener('click',()=>{S.step=+a.dataset.gotoStep;full()}));
+  const bg=$('#burger'),dr=$('#drawer');bg.addEventListener('click',()=>{const o=dr.classList.toggle('open');bg.setAttribute('aria-expanded',o)});dr.addEventListener('click',e=>{if(e.target.closest('a')){dr.classList.remove('open');bg.setAttribute('aria-expanded','false')}});
+  const io=new IntersectionObserver(es=>es.forEach(en=>$('#mbar').classList.toggle('show',en.isIntersecting)),{threshold:0});io.observe($('#configurator'));
+}
+
+/* ============================ Демо-данные и старт ============================ */
+function seedDemo(){
+  if(ORDERS.some(o=>o.no==='10245'))return;
+  const spec=Object.assign(defaultState(),{coating:'enamel',variant:'semi',milling:'shaker',color:colorRAL('6021'),city:'Астана'});
+  const created=addDays(new Date(),-9);
+  const r=withState(spec,calc);
+  ORDERS.push({no:'10245',created:created.toISOString(),phone:'+77010000000',name:'Демо-клиент',email:'',buyer:{type:'person'},recv:'delivery',city:'Астана',address:'пр. Мангилик Ел, 1',recipient:'Демо-клиент',rphone:'+77010000000',comment:'',files:[],pay:'half',prepayPct:50,payDisc:0,total:r.total,paid:r10(r.total/2),spec,sum:{total:r.total,area:r.area,days:r.days,ready:addWorkdays(created,r.days+1).toISOString(),tr:r.tr},status:3,prod:1,history:[{s:0,t:created.toISOString()},{s:1,t:created.toISOString()},{s:2,t:created.toISOString()},{s:3,p:0,t:addWorkdays(created,1).toISOString()},{s:3,p:1,t:addWorkdays(created,4).toISOString()}],agreed:{offer:true,pd:true,risk:true,custom:true,at:created.toISOString()}});
+  saveOrders();
+}
+function loadFromHash(){
+  const m=location.hash.match(/^#p=(.+)$/);if(!m)return false;
+  try{const d=JSON.parse(decodeURIComponent(escape(atob(m[1]))));if(d&&COATINGS[d.coating]&&Array.isArray(d.items)&&d.items.length){S=Object.assign(defaultState(),d);S.step=5;full();history.replaceState(null,'',location.pathname+location.search+'#configurator');$('#configurator').scrollIntoView();toast('Проект загружен по ссылке','ok');return true}}catch(e){toast('Не удалось открыть проект по ссылке','err')}
+  return false;
+}
+seedDemo();renderStatic();updateBadge();updateHeader();full();loadFromHash();
+window.addEventListener('hashchange',loadFromHash);
+</script>
+</body>
+</html>
